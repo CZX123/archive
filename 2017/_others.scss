@@ -1,0 +1,213 @@
+// Footer styles
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: absolute;
+	height: 96px;
+	width: 100%;
+	@include position(null,0,0,0);
+	background: $primary-color;
+	font-weight: 500;
+	box-shadow: $elevation-0;
+	z-index: 1;
+	
+	a {
+		position: relative;
+		padding: 139px 24px;
+		text-decoration: none;
+    	@include transition(background .3s, transform .4s .2s, opacity .4s .2s);
+		
+		&:hover {
+			background: $darker;
+		}
+		// The faded text that says 'Next' or 'Previous'
+		span {
+			color: $text-color-faded-inverse;
+			@include font-style(15px_18px);
+			
+			+ div {
+				display: flex;
+				// The text that says the page title.
+				span {
+					padding: 0 10px !important;
+					color: $footer-text-color;
+					@include font-style(20px_24px);
+					white-space: nowrap;
+				}
+				svg {
+					height: 24px;
+    				width: 24px;
+					fill: $footer-text-color;
+				}
+			}
+		}
+		
+	}
+	
+	a.left {
+		border-radius: 0 160px 160px 0;
+		
+		span {
+			padding: 0 10px 0 34px;
+		}
+	}
+	
+	a.right {
+		border-radius: 160px 0 0 160px;
+		text-align: right;
+		
+		span {
+			padding: 0 34px 0 10px;
+		}
+	}
+	
+	&.compress {
+		a.left {
+			width: 72px;
+			
+			span {
+				opacity: 0;
+				
+				+ div span {
+					display: none;
+				}
+			}
+		}
+	}
+	
+	&.scroll-animate {
+		opacity: 1;
+		a.left {
+			opacity: 0;
+			@include transform(translateX(20px));
+		}
+		a.right {
+			opacity: 0;
+			@include transform(translateX(-20px));
+		}
+	}
+}
+
+.fab {
+	position: fixed;
+	height: 56px;
+	width: 56px;
+	@include position(null,null,20px,50%);
+	border-radius: 50%;
+	padding: 14px;
+	background: $accent-color;
+	@include transform(translateX(-50%) scale(1)); // scale(1) needed for onscreen animation not to stutter
+	@include transition(all .2s);
+	box-shadow: $elevation-6;
+	z-index: 6;
+		
+	svg {
+		height: 28px;
+		width: 28px;
+		fill: $icon-color-inverse;
+		@include transition(transform .3s); // For the rotate animation
+	}
+	
+	&.back-to-top svg {
+		@include transform(rotate(180deg));
+	}
+	
+	@include media(large-width) {
+		> div {
+			@include transition(transform .2s);
+		}
+		
+		&:hover {
+			@include transform(translateX(-50%) scale(1.3));
+			> div {
+				@include transform(scale(.9));
+			}
+		}
+	}
+	
+	&:active {
+		box-shadow: $elevation-12;
+	}
+	
+	&.animate {
+		@include transform(translateX(-50%) scale(0));
+		will-change: transform;
+	}
+}
+
+// Ripple effect. There are only this few elements using ripple effects:
+// 1) Nav drawer links
+// 2) Menu
+// 3) General buttons
+// 4) FAB
+// 5) Footer links
+
+.ripple {
+	visibility: hidden;
+	position: absolute;
+	height: 56px; // No choice, have to use exact value
+	width: 56px;
+	@include position(0,null,null,0);
+	border-radius: 50%;
+	background: $darker;
+	opacity: 0;
+	@include transform(scale(0));
+	@include transition(none);
+	pointer-events: none;
+	
+	&.appear {
+		visibility: visible;
+		opacity: 1;
+		@include transform(scale(12));
+		@include transition(transform .7s, opacity .26s .04s);
+	}
+	&.fade-out.finish {
+		@extend .appear;
+		visibility: hidden !important;
+		opacity: 0 !important;
+		@include transition(transform .7s, opacity .4s, visibility 0s .4s);
+	}
+}
+
+.menu .ripple {
+	background: rgba(0,0,0,.12);
+	
+	&.appear {
+		@include transform(scale(1.9));
+		@include transition(transform .46s, opacity .21s .04s);
+	}
+	&.fade-out.finish {
+		@extend .appear;
+		@include transition(transform .46s, opacity .4s, visibility 0s .4s);
+	}
+}
+.menu.dark-bg-true .ripple {
+	background: rgba(255,255,255,.2);
+}
+
+button .ripple {
+	background: rgba(255,255,255,.26);
+	
+	&.appear {
+		@include transform(scale(5));
+		@include transition(transform .46s, opacity .21s .04s);
+	}
+	&.fade-out.finish {
+		@extend .appear;
+		@include transition(transform .46s, opacity .4s, visibility 0s .4s);
+	}
+}
+
+.fab .ripple {
+	background: rgba(255,255,255,.28);
+	
+	&.appear {
+		@include transform(scale(2.5));
+		@include transition(transform .46s, opacity .21s .04s);
+	}
+	&.fade-out.finish {
+		@extend .appear;
+		@include transition(transform .46s, opacity .4s, visibility 0s .4s);
+	}
+}

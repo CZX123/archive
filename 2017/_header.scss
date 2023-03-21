@@ -1,0 +1,114 @@
+header {
+	position: absolute;
+	width: 100%;
+	@include position(50vh);
+	padding: 0 36px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	@include transform(translateY(-50%));
+	@include transition(transform .5s);
+	z-index: 5;
+}
+
+h1 {
+	color: $text-color-inverse;
+	@include font-style(48px);
+	text-align: center;
+	@include transition(transform .3s);
+	
+	> div {
+		display: inline-block;
+		line-height: 0.9;
+		
+		> span {
+			display: block;
+		}
+	}
+	> div:first-child {
+		position: relative;
+		height: 115px;
+		width: 181.5px;
+		border-radius: 6.5px;
+		padding: 8px 26px;
+		background: $white;
+		color: $primary-color;
+		box-shadow: $elevation-2;
+		@include animation(card .8s forwards .5s);
+		@include transform(translateX(95.75px) scale(.7));
+		opacity: 0;
+		z-index: 1;
+		
+		@include media(480px) {
+			@include transform(translateY(51.5px) scale(.7));
+			@include animation(card-small .7s forwards .5s);
+		}
+		
+		> span:last-child {
+			@include font-style(63px);
+		}
+	}
+	> br {
+		display: none;
+		@include media(480px) { display: block; }
+	}
+	> div:last-child {
+		height: 100px;
+		width: 179.5px;
+		margin: 7.5px 0 7.5px 12px;
+		text-align: left;
+		@include transform(translateX(-96.75px));
+		opacity: 0;
+		@include animation(slide .4s forwards .9s);
+		
+		@include media(480px) {
+			margin: 0;
+			@include transform(translateY(-59.5px));
+			@include animation(slide-small .315s forwards .885s);
+		}
+		
+		> span:first-child {
+			@include font-style(70px);
+			@include transform(translateX(-1px));
+		}
+		> span:last-child {
+			@include font-style(41.93px);
+		}
+	}
+}
+@include keyframes(card) {
+	50% {
+		transform: scale(1) translateX(95.75px);
+		opacity: 1;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+@include keyframes(slide) {
+	70% {
+		opacity: 1;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+@include keyframes(card-small) {
+	55% {
+		transform: scale(1) translateY(51.5px);
+		opacity: 1;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+@include keyframes(slide-small) {
+	70% {
+		opacity: 1;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,213 @@
+// $Variables
+$primary-color: #2196F3;
+$primary-color-400: #42A5F5;
+$accent-color: #FF6E40;
+$text-color: rgba(0,0,0,.87);
+$text-color-inverse: #FFF;
+$text-color-faded: rgba(0,0,0,.54); // Used for hints
+$text-color-faded-inverse: rgba(255,255,255,.54);
+$footer-text-color: rgba(255,255,255,.87);
+$icon-color: rgba(0,0,0,.54);
+$icon-color-inverse: #FFF;
+// Used for backgrounds
+$white: #FFF;
+$light-grey: #F5F5F5;
+$grey: #EEE;
+$yellow: #FF9800;
+$darker: rgba(0,0,0,.08); // Used for elements like menu and ripple to have a darker background
+
+$font-stack: Roboto, sans-serif;
+
+$medium-device: 767px;
+$small-device: 450px;
+
+$material-ease: cubic-bezier(.4,0,.2,1);
+$elevation-2: 0 3px 1px -2px rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.1), 0 1px 5px 0 rgba(0,0,0,.08);
+$elevation-4: 0 2px 4px -1px rgba(0,0,0,.14), 0 4px 5px 0 rgba(0,0,0,.1), 0 1px 10px 0 rgba(0,0,0,.08);
+$elevation-6: 0 3px 5px -1px rgba(0,0,0,.14), 0 6px 10px 0 rgba(0,0,0,.1), 0 1px 18px 0 rgba(0,0,0,.08);
+$elevation-8: 0 5px 5px -3px rgba(0,0,0,.14), 0 8px 10px 1px rgba(0,0,0,.1), 0 3px 14px 2px rgba(0,0,0,.08);
+$elevation-12: 0 7px 8px -4px rgba(0,0,0,.14), 0 12px 17px 2px rgba(0,0,0,.1), 0 5px 22px 4px rgba(0,0,0,.08);
+$elevation-16: 0 8px 10px -5px rgba(0,0,0,.14), 0 16px 24px 2px rgba(0,0,0,.1), 0 6px 30px 5px rgba(0,0,0,.08);
+$elevation-0: 0 0 32px 0 rgba(0,0,0,.2);
+
+// Adding -webkit- for older Safari support
+@mixin transform($values...) {
+	-webkit-transform: $values;
+	transform: $values;
+}
+
+@mixin transform-origin($value) {
+	-webkit-transform-origin: $value;
+	transform-origin: $value;
+}
+
+@mixin animation($values...) {
+	-webkit-animation: $values;
+	-webkit-animation-timing-function: $material-ease;
+	animation: $values;
+	animation-timing-function: $material-ease;
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin transition($values...) {
+	$transform: '';
+	@each $item in $values {
+		$transform-index: index($item, transform);
+		@if $transform-index != null {
+			$transform: ', ' + $item;
+		}
+	}
+	$str-values: inspect($values);
+	$new-string: str-replace($str-values, 'transform', '-webkit-transform');
+	@if str-index($new-string, ',)') != null { // Check for singleton and remove brackets and comma
+		$new-string: str-slice($new-string, 2, -3);
+	}
+	transition: #{$new-string+$transform};
+	transition-timing-function: $material-ease;
+}
+
+@mixin transition-delay($value) {
+	transition-delay: $value;
+}
+
+@function str-replace($string, $old, $new) {
+	$index: str-index($string, $old);
+	@if $index != null {
+		$new-string: str-slice($string, 1, $index - 1) + $new + str-slice($string, $index + str_length($old));
+		@return $new-string;
+	}
+	@return $string;
+}
+
+
+// Mixins for convenience
+@mixin fullscreen {
+	@include position(0,0,0,0);
+}
+// Use @include fullscreen on absolute or fixed elements to cover entire screen;
+
+@mixin position($top,$right:null,$bottom:null,$left:null) {
+	@if $top != null { top: $top; }
+	@if $right != null { right: $right; }
+	@if $bottom != null { bottom: $bottom; }
+	@if $left != null { left: $left; }
+}
+// A shorthand for top,right,bottom,left values. Format: @include position(top,right,bottom,left);
+
+@mixin font-style($size,$weight:null) {
+	$str-size: inspect($size);
+	$index: str-index($str-size, '_');
+	@if $index != null {
+		$font-size: str-slice($str-size, 1, $index - 1);
+		$line-height: str-slice($str-size, $index + 1, -1);
+		@if $font-size != '' {
+			font-size: #{$font-size};
+		}
+		@if $line-height != '' {
+			$space-index: str-index($line-height, ' '); // Fix for the line-height glitch for decimal point numbers
+			@if $space-index != null {
+				$line-height: str-slice($line-height, 1, $space-index - 1) + str-slice($line-height, $space-index + 2, -1);
+			}
+			line-height: #{$line-height};
+		}
+	}
+	@else {
+		font-size: $size;
+	}
+	@if $weight != null {
+		font-weight: $weight;
+	}
+}
+// Format: 	@include font-style(font-size_line-height,font-weight); OR
+//			@include font-style(font-size,font-weight); OR
+//			@include font-style(_line-height,font-weight);
+// Note: 'font-weight' value is optional.
+
+// Media queries simplified
+@mixin media($device-size) {
+	@if $device-size == large-width {
+		@media(min-width:$medium-device+1) { @content; }
+	}
+	@else if $device-size == medium-width {
+		@media(max-width:$medium-device) { @content; }
+	}
+	@else if $device-size == small-width {
+		@media(max-width:$small-device) { @content; }
+	}
+	@else if $device-size == small-height {
+		@media(max-height:$small-device) { @content; }
+	}
+	@else if $device-size == portrait {
+		@media(orientation:portrait) { @content; }
+	}
+	@else {
+		@media(max-width:$device-size) { @content; }
+	}
+}
+// Format: @include media($value) { content; }, where value could be one of the 4 mentioned above or a custom one, which will return '@media (max-width:$custom-value) { content; }'
+
+@mixin selection {
+	::-moz-selection { @content; }
+	::selection { @content; }
+}
+// Pretty straitforward
+
+// Reset css to standardise styles and start from scratch
+@import 'reset';
+
+
+// General Styles
+html {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+body {
+	position: relative;
+	min-height: 100%;
+	padding: 256px 0 96px;
+	background: $light-grey;
+	color: $text-color;
+	@include font-style(14px_1.15);
+	font-family: $font-stack;
+}
+.vanish {
+	display: none !important;
+}
+.cover {
+    position: absolute;
+	@include fullscreen;
+	background: #FFF;
+	@include animation(fade .4s forwards);
+	opacity: 1;
+	z-index: 999;
+}
+@include keyframes(fade) {
+	to {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+// Nav Styles - consisting of normal navbar, waterfall navbar, menu button, ghost and navigation drawer + scrim (plus an import from header)
+@import 'nav';
+
+// Import individual components and different types of sections
+@import 'components';
+
+// Import remaining components that are not sections, like the footer, the fab, and styles for the ripple effects
+@import 'others';
+
+@include selection {
+    color: $text-color-inverse;
+    background: $accent-color;
+}

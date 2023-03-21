@@ -1,0 +1,909 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology</title>
+<link rel="shortcut icon" href="logo.png">
+<link rel="shortcut icon" href="logo.svg">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Roboto:400,500">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<style>
+.main-carousel {
+	height: 100%;
+	width: 100%;
+	background: url(grey-bg-2.jpg) center;
+	background-size: cover;
+}
+.flickity-viewport {
+	background: rgba(255,255,255,.8);
+	filter: none;
+}
+.flickity-slider {
+	overflow: visible;
+}
+.flkty-carousel .h2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 1;
+}
+.flkty-carousel .h2 h2 {
+	margin: 0;
+	padding: 48px 16px;
+	font-weight: 400;
+	transition: transform .56s, opacity .56s;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.carousel-cell {
+	height: 100%;
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+}
+.carousel-cell .card {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: calc(100% - 144px);
+	right: 50%;
+	bottom: 50%;
+	margin: 0;
+	padding: 0;
+	background: none;
+	-webkit-transform: translate(50%,50%);
+	transform: translate(50%,50%);
+}
+@media (max-height:600px) {
+.flkty-carousel {
+	min-height: 470px;
+}
+.flkty-carousel .h2 h2 {
+	padding: 32px 16px;
+}
+.carousel-cell .card {
+	bottom: 280px;
+}
+}
+@media (max-height:600px) and (max-width:450px) {
+.flkty-carousel {
+	min-height: 500px;
+}
+.carousel-cell .card {
+	bottom: 300px;
+}
+}
+.carousel-cell .card .img {
+	border-radius: 0;
+	background: none;
+}
+.carousel-cell .card p {
+	padding: 0;
+	font-size: 16px;
+}
+.carousel-cell .card  .img svg {
+	height: 100%;
+	width: 100%;
+	fill: rgba(0,0,0,.54);
+}
+.carousel-cell .circle {
+	position: absolute;
+	height: 12px;
+	width: 12px;
+	bottom: 140px;
+	left: 50%;
+	border-radius: 50%;
+	background: #2196F3;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.carousel-cell .line-left, .carousel-cell .line-right {
+	position: absolute;
+	height: 2px;
+	width: 50%;
+	bottom: 145px;
+	background: #2196F3;
+}
+.carousel-cell .line-left {
+	right: 50%;
+}
+.carousel-cell .line-right {
+	left: 50%;
+}
+.carousel-cell .time {
+	position: absolute;
+	bottom: 96px;
+	left: 50%;
+	font-size: 16px;
+	line-height: 24px;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.flickity-prev-next-button {
+	display: none;
+}
+.flickity-custom-button {
+	position: absolute;
+	height: 48px;
+	width: 48px;
+	top: 50%;
+	border-radius: 50%;
+	padding: 0;
+	background: #FFF !important;
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,.14), 0 4px 5px 0 rgba(0,0,0,.1), 0 1px 10px 0 rgba(0,0,0,.08) !important;
+	-webkit-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+	transition: all .2s cubic-bezier(.4,0,.2,1);
+	z-index: 2;
+}
+.flickity-custom-button.flickity-prev {
+	left: 12px;
+}
+.flickity-custom-button.flickity-next {
+	right: 12px;
+}
+.flickity-custom-button > div {
+	padding: 10px;
+}
+.flickity-custom-button svg {
+	height: 28px;
+	width: 28px;
+	fill: rgba(0,0,0,.54);
+}
+.flickity-custom-button:disabled {
+	opacity: 1;
+	pointer-events: none;
+	-webkit-transform: translateY(-50%) scale(0);
+    transform: translateY(-50%) scale(0);
+}
+.flickity-custom-button:hover {
+	box-shadow: 0 3px 5px -1px rgba(0,0,0,.14), 0 6px 10px 0 rgba(0,0,0,.1), 0 1px 18px 0 rgba(0,0,0,.08) !important;
+}
+.flickity-custom-button:active {
+	opacity: 1;
+	box-shadow: 0 5px 5px -3px rgba(0,0,0,.14), 0 8px 10px 1px rgba(0,0,0,.1), 0 3px 14px 2px rgba(0,0,0,.08) !important;
+}
+.flickity-custom-button .ripple {
+	background: rgba(0,0,0,.08);
+}
+.flickity-custom-button .ripple.appear {
+	-webkit-transform: scale(1.9);
+	transform: scale(1.9);
+	transition: -webkit-transform .46s, opacity .21s .04s, transform .46s;
+}
+.flickity-custom-button .ripple.fade-out.finish {
+	-webkit-transform: scale(1.9);
+	transform: scale(1.9);
+	transition: -webkit-transform .46s, opacity .4s, visibility 0s .4s, transform .46s;
+}
+.process .carousel-cell {
+	max-width: 100%;
+}
+.process::after {
+	content: '1';
+	position: absolute;
+	height: 36px;
+	width: 36px;
+	bottom: 30px;
+	left: 18px;
+	border-radius: 50%;
+	background: #2196F3;
+	color: #FFF;
+	font-size: 16px;
+	line-height: 36px;
+	text-align: center;
+	transition: -webkit-transform .2s, transform .2s;
+}
+.process.s1::after {
+	content: '2';
+}
+.process.s2::after {
+	content: '3';
+}
+.process.s3::after {
+	content: '4';
+}
+.process.s4::after {
+	content: '5';
+}
+.process .text {
+	position: absolute;
+	width: 100%;
+	max-width: 400px;
+	left: 50%;
+	bottom: 96px;
+	margin: 0;
+	padding: 0 16px;
+	font-size: 14px;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+	
+.process-animation {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 308px;
+	width: 872px;
+	z-index: 2;
+	pointer-events: none;
+	overflow: visible;
+	transition: -webkit-transform .6s, transform .6s;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.s0 .process-animation {
+	-webkit-transform: translate(-48px,-50%);
+	transform: translate(-48px,-50%);
+}
+.s1 .process-animation {
+	-webkit-transform: translate(-228px,-50%);
+	transform: translate(-228px,-50%);
+}
+.s2 .process-animation {
+	-webkit-transform: translate(-304px,-50%);
+	transform: translate(-304px,-50%);
+}
+.s3 .process-animation {
+	-webkit-transform: translate(-588px,-50%);
+	transform: translate(-588px,-50%);
+}
+.s4 .process-animation {
+	-webkit-transform: translate(-796px,-50%);
+	transform: translate(-796px,-50%);
+}
+@media (max-height:666px) {
+.process {
+	min-height: 573px;
+}
+.process .h2 h2 {
+	padding: 36px 16px;
+}
+.process-animation {
+	top: 44%;
+}
+}
+.process-animation > .wrapper {
+	position: relative;
+	height: 100%;
+}
+.process-animation .raw-data, .process-animation .prepared-data {
+	position: absolute;
+	top: 156px;
+	left: 0;
+	height: 120px;
+	width: 96px;
+}
+.process-animation .prepared-data {
+	left: 360px;
+}
+.process-animation .raw-data svg, .process-animation .prepared-data svg {
+	height: 96px;
+	width: 96px;
+	fill: #777;
+	transition: fill .3s cubic-bezier(.4,0,.2,1);
+}
+.s0 .process-animation .raw-data svg {
+	fill: #FF6E40;
+}
+.s2 .process-animation .prepared-data svg {
+	fill: #9C27B0;
+}
+.process-animation .raw-data div, .process-animation .prepared-data div {
+	width: 96px;
+	margin-top: -4px;
+	padding-bottom: 6px;
+	line-height: 22px;
+	text-align: center;
+}
+.process-animation .pre-processing-modules, .process-animation .ml-algo {
+	position: absolute;
+	top: 0;
+	left: 164px;
+	height: 88px;
+	width: 128px;
+}
+.process-animation .ml-algo {
+	left: 524px;
+}
+.process-animation .pre-processing-modules .lower, .process-animation .ml-algo .lower {
+	height: 80px;
+	width: 120px;
+	margin: 8px 8px 0 0;
+	border: 2px solid #777;
+	border-radius: 8px;
+	transition: border .3s cubic-bezier(.4,0,.2,1);
+}
+.s1 .process-animation .pre-processing-modules .lower {
+	border-color: #9C27B0;
+}
+.s3 .process-animation .ml-algo .lower {
+	border-color: #009688;
+}
+.process-animation .pre-processing-modules .upper, .process-animation .ml-algo .upper {
+	height: 80px;
+	width: 120px;
+	margin: -88px 0 0 8px;
+	border-radius: 8px;
+	padding: 4px 0;
+	background: #777;
+	color: #FFF;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+	transition: background .3s cubic-bezier(.4,0,.2,1);
+}
+.s1 .process-animation .pre-processing-modules .upper {
+	background: #9C27B0;
+}
+.s3 .process-animation .ml-algo .upper {
+	background: #009688;
+}
+.process-animation .arrow {
+	position: absolute;
+	height: 8px;
+	width: 56px;
+	top: 212px;
+}
+.process-animation .arrow .line {
+	float: left;
+	height: 2px;
+	width: 48px;
+	margin: 3px 0;
+	background: #777;
+	transition: background .3s cubic-bezier(.4,0,.2,1);
+}
+.process-animation .arrow .triangle {
+	width: 0;
+	height: 0;
+	float: left;
+	border-style: solid;
+	border-width: 4px 0 4px 8px;
+	border-color: transparent transparent transparent #777;
+	transition: border-color .3s cubic-bezier(.4,0,.2,1);
+}
+.arrow.arrow-from-data {
+	left: 96px;
+}
+.arrow.arrow-to-algo {
+	left: 456px;
+}
+.arrow.arrow-to-completion {
+	left: 664px;
+}
+.arrow.arrow-from-modules {
+	top: 128px;
+	left: 200px;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+.s1 .arrow.arrow-from-modules .line {
+	background: #9C27B0;
+}
+.s1 .arrow.arrow-from-modules .triangle {
+	border-color: transparent transparent transparent #9C27B0;
+}
+.arrow.arrow-from-ml-algo {
+	top: 128px;
+	left: 560px;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+.s3 .arrow.arrow-from-ml-algo .line {
+	background: #009688;
+}
+.s3 .arrow.arrow-from-ml-algo .triangle {
+	border-color: transparent transparent transparent #009688;
+}
+.process-animation .pre-processing, .process-animation .apply-algo, .process-animation .completed {
+	position: absolute;
+	height: 80px;
+	width: 120px;
+	top: 176px;
+	left: 168px;
+	border-radius: 8px;
+	padding: 16px 0;
+	background: #777;
+	color: #FFF;
+	font-size: 18px;
+	line-height: 24px;
+	text-align: center;
+	transition: background .3s cubic-bezier(.4,0,.2,1);
+}
+.s1 .process-animation .pre-processing, .s2 .process-animation .pre-processing {
+	background: #9C27B0;
+}
+.process-animation .apply-algo {
+	left: 528px;
+}
+.s3 .process-animation .apply-algo {
+	background: #009688;
+}
+.process-animation .completed {
+	left: 736px;
+}
+.s4 .process-animation .completed {
+	background: #2196F3;
+}
+.process-animation .arrow-iterate {
+	position: absolute;
+	height: 196px;
+	width: 196px;
+	top: 128px;
+	left: 228px;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #777 transparent transparent transparent;
+	overflow: visible;
+	transition: border .3s cubic-bezier(.4,0,.2,1);
+}
+.s2 .process-animation .arrow-iterate {
+	border-color: #9C27B0 transparent transparent transparent;
+}
+.process-animation .arrow-iterate.lower {
+	top: 112px;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.process-animation .arrow-iterate .triangle {
+	width: 0;
+	height: 0;
+	margin: 21.96px 0 0 159px;
+	border-style: solid;
+	border-width: 4px 0 4px 8px;
+	border-color: transparent transparent transparent #777;
+	-webkit-transform: rotate(41deg);
+	transform: rotate(41deg);
+	transition: border .3s cubic-bezier(.4,0,.2,1);
+}
+.s2 .process-animation .arrow-iterate .triangle {
+	border-color: transparent transparent transparent #9C27B0;
+}
+
+.divide.text-only {
+	background: #F0F0F0;
+}
+.divide.text-only.no-shadow .text {
+	margin-top: 0;
+}
+.divide.text-only .wrapper {
+	min-height: auto;
+	flex-direction: column;
+	background: none;
+}
+.divide.text-only h2 {
+	position: static;
+	padding: 24px 16px;
+	-wenkit-transform: none;
+	transform: none;
+}
+.divide.scroll-animate.text-only h2 {
+	-webkit-transform: translateY(75px);
+	transform: translateY(75px);
+}
+.divide.text-only .text .image {
+	height: 48px;
+	width: 48px;
+	margin-bottom: 28px;
+	border-radius: 50%;
+	background: #2196F3;
+	color: #FFF;
+	font-size: 20px;
+	line-height: 48px;
+	text-align: center;
+}
+.divide h3 {
+	margin-bottom: 24px;
+	font-size: 20px;
+	font-weight: 500;
+	transition: -webkit-transform .56s, opacity .56s, transform .56s;
+}
+.divide img {
+	width: 100%;
+	max-width: 500px;
+	margin-bottom: 24px;
+	border: 16px solid #FFF;
+	border-radius: 16px;
+	transition: -webkit-transform .56s, opacity .56s, transform .56s;
+}
+.divide.text-only .text p {
+	max-width: 500px;
+}
+.divide img.scroll-animate {
+	-webkit-transform: translateY(50px);
+	transform: translateY(50px);
+}
+</style>
+</head>
+<body>
+	<div class="cover"></div>
+	<nav class="waterfall animate">
+		<div>
+			<div class="bg-wrapper"><div class="bg-image"></div></div>
+			<h1>Methodology</h1>
+		</div>
+	</nav>
+	<button class="menu animate">
+		<div>
+			<svg viewBox="0 0 24 24">
+    			<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
+			</svg>
+		</div>
+	</button>
+	<div class="drag-nav-drawer"></div>
+	<div class="nav-drawer">
+	<div class="scrollbar-animate">
+		<div class="logo">
+			<header>
+				<h1>
+					<div><span>CREDIT</span><span>CARD</span></div><div><span>FRAUD</span><span>DETECTION</span></div>
+				</h1>
+			</header>
+		</div>
+		<ul>
+			<li>
+				<svg viewBox="0 0 24 24">
+    				<path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/>
+				</svg>
+				<a href="index.html">Home</a>
+			</li>
+			<li>
+				<svg viewBox="0 0 24 24">
+    				<path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+				</svg>
+				<a href="problem.html">Problem</a>
+			</li>
+			<li>
+				<svg viewBox="0 0 24 24">
+    				<path d="M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63Z"/>
+				</svg>
+				<a href="solution.html">Solution</a>
+			</li>
+			<li>
+				<svg viewBox="0 0 24 24">
+    				<path d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"/>
+				</svg>
+				<a href="litreview.html">Literature Review</a>
+			</li>
+			<li class="active">
+				<svg viewBox="0 0 24 24">
+					<path d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z"/>
+				</svg>
+				<a href="method.html">Methodology</a>
+			</li>
+			<li>
+				<svg viewBox="0 0 24 24">
+					<path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M7,20H9V14H7V20M11,20H13V12H11V20M15,20H17V16H15V20Z"/>
+				</svg>
+				<a href="results.html">Results</a>
+			</li>
+			<li>
+				<svg viewBox="0 0 24 24">
+					<path d="M16,6H13V7.9H16C18.26,7.9 20.1,9.73 20.1,12A4.1,4.1 0 0,1 16,16.1H13V18H16A6,6 0 0,0 22,12C22,8.68 19.31,6 16,6M3.9,12C3.9,9.73 5.74,7.9 8,7.9H11V6H8A6,6 0 0,0 2,12A6,6 0 0,0 8,18H11V16.1H8C5.74,16.1 3.9,14.26 3.9,12M8,13H16V11H8V13Z"/>
+				</svg>
+				<a href="refer.html">References</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+	<div class="scrim"></div>
+	<header class="vanish"></header>
+	<div class="ghost"></div>
+	<section class="flkty-carousel">
+		<div class="h2">
+			<h2 class="scroll-animate">Timeline</h2>
+		</div>
+		<div class="main-carousel">
+			<div class="carousel-cell">
+				<div class="card flat">
+					<div class="img">
+						<svg viewBox="0 0 24 24">
+    						<path d="M15.5,14L20.5,19L19,20.5L14,15.5V14.71L13.73,14.43C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.43,13.73L14.71,14H15.5M9.5,4.5L8.95,4.53C8.71,5.05 8.34,5.93 8.07,7H10.93C10.66,5.93 10.29,5.05 10.05,4.53C9.87,4.5 9.69,4.5 9.5,4.5M13.83,7C13.24,5.97 12.29,5.17 11.15,4.78C11.39,5.31 11.7,6.08 11.93,7H13.83M5.17,7H7.07C7.3,6.08 7.61,5.31 7.85,4.78C6.71,5.17 5.76,5.97 5.17,7M4.5,9.5C4.5,10 4.58,10.53 4.73,11H6.87L6.75,9.5L6.87,8H4.73C4.58,8.47 4.5,9 4.5,9.5M14.27,11C14.42,10.53 14.5,10 14.5,9.5C14.5,9 14.42,8.47 14.27,8H12.13C12.21,8.5 12.25,9 12.25,9.5C12.25,10 12.21,10.5 12.13,11H14.27M7.87,8L7.75,9.5L7.87,11H11.13C11.21,10.5 11.25,10 11.25,9.5C11.25,9 11.21,8.5 11.13,8H7.87M9.5,14.5C9.68,14.5 9.86,14.5 10.03,14.47C10.28,13.95 10.66,13.07 10.93,12H8.07C8.34,13.07 8.72,13.95 8.97,14.47L9.5,14.5M13.83,12H11.93C11.7,12.92 11.39,13.69 11.15,14.22C12.29,13.83 13.24,13.03 13.83,12M5.17,12C5.76,13.03 6.71,13.83 7.85,14.22C7.61,13.69 7.3,12.92 7.07,12H5.17Z"/>
+						</svg>
+					</div>
+					<p>From the time we start the project, research was done on the different machine learning algorithms and which one to use.</p>
+				</div>
+				<div class="circle"></div>
+				<div class="line-right"></div>
+				<div class="time">January - March</div>
+			</div>
+			<div class="carousel-cell">
+				<div class="card flat">
+					<div class="img">
+						<svg viewBox="0 0 24 24">
+    						<path d="M19.14,7.5A2.86,2.86 0 0,1 22,10.36V14.14A2.86,2.86 0 0,1 19.14,17H12C12,17.39 12.32,17.96 12.71,17.96H17V19.64A2.86,2.86 0 0,1 14.14,22.5H9.86A2.86,2.86 0 0,1 7,19.64V15.89C7,14.31 8.28,13.04 9.86,13.04H15.11C16.69,13.04 17.96,11.76 17.96,10.18V7.5H19.14M14.86,19.29C14.46,19.29 14.14,19.59 14.14,20.18C14.14,20.77 14.46,20.89 14.86,20.89A0.71,0.71 0 0,0 15.57,20.18C15.57,19.59 15.25,19.29 14.86,19.29M4.86,17.5C3.28,17.5 2,16.22 2,14.64V10.86C2,9.28 3.28,8 4.86,8H12C12,7.61 11.68,7.04 11.29,7.04H7V5.36C7,3.78 8.28,2.5 9.86,2.5H14.14C15.72,2.5 17,3.78 17,5.36V9.11C17,10.69 15.72,11.96 14.14,11.96H8.89C7.31,11.96 6.04,13.24 6.04,14.82V17.5H4.86M9.14,5.71C9.54,5.71 9.86,5.41 9.86,4.82C9.86,4.23 9.54,4.11 9.14,4.11C8.75,4.11 8.43,4.23 8.43,4.82C8.43,5.41 8.75,5.71 9.14,5.71Z"/>
+						</svg>
+					</div>
+					<p>During the march holidays, we prepared our presentation for our Proposal Evaluation, and learnt python to be able to develop our project.</p>
+				</div>
+				<div class="circle"></div>
+				<div class="line-left"></div>
+				<div class="line-right"></div>
+				<div class="time">March - April</div>
+			</div>
+			<div class="carousel-cell">
+				<div class="card flat">
+					<div class="img">
+						<svg viewBox="0 0 24 24">
+    						<path d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z"/>
+						</svg>
+					</div>
+					<p>After the march holidays, we began writing the program and training it to distinguish fraudulent transactions from non-fraudulent ones.</p>
+				</div>
+				<div class="circle"></div>
+				<div class="line-left"></div>
+				<div class="line-right"></div>
+				<div class="time">April - July</div>
+			</div>
+			<div class="carousel-cell">
+				<div class="card flat">
+					<div class="img">
+						<svg viewBox="0 0 24 24">
+    						<path d="M6.59,3.41L2,8L6.59,12.6L8,11.18L4.82,8L8,4.82L6.59,3.41M12.41,3.41L11,4.82L14.18,8L11,11.18L12.41,12.6L17,8L12.41,3.41M21.59,11.59L13.5,19.68L9.83,16L8.42,17.41L13.5,22.5L23,13L21.59,11.59Z"/>
+						</svg>
+					</div>
+					<p>After the mid-term evaluation, the program was able to detect fraudulent transactions, and we continued refining it so that it could become more accurate.</p>
+				</div>
+				<div class="circle"></div>
+				<div class="line-left"></div>
+				<div class="line-right"></div>
+				<div class="time">July - August</div>
+			</div>
+			<div class="carousel-cell">
+				<div class="card flat">
+					<div class="img">
+						<svg viewBox="0 0 24 24">
+    						<path d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z"/>
+						</svg>
+					</div>
+					<p>By the final evaluation, we vastly improved on the program and we have come to our final product.</p>
+				</div>
+				<div class="circle"></div>
+				<div class="line-left"></div>
+				<div class="time">August</div>
+			</div>
+		</div>
+		<button class="flickity-custom-button flickity-prev" disabled>
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/>
+				</svg>
+			</div>
+		</button>
+		<button class="flickity-custom-button flickity-next">
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+				</svg>
+			</div>
+		</button>
+	</section>
+	<section class="flkty-carousel process s0">
+		<div class="h2">
+			<h2 class="scroll-animate">Process</h2>
+		</div>
+		<div class="process-animation">
+			<div class="wrapper">
+				<div class="raw-data">
+					<svg viewBox="0 0 24 24">
+    					<path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z"/>
+					</svg>
+					<div>Raw Data</div>
+				</div>
+				<div class="arrow arrow-from-data">
+					<div class="line"></div>
+					<div class="triangle"></div>
+				</div>
+				<div class="pre-processing">Data Pre-processing</div>
+				<div class="arrow arrow-from-modules">
+					<div class="line"></div>
+					<div class="triangle"></div>
+				</div>
+				<div class="pre-processing-modules">
+					<div class="lower"></div>
+					<div class="upper">Data Pre-processing Modules</div>
+				</div>
+				<div class="arrow-iterate upper">
+					<div class="triangle"></div>
+				</div>
+				<div class="arrow-iterate lower">
+					<div class="triangle"></div>
+				</div>
+				<div class="prepared-data">
+					<svg viewBox="0 0 24 24">
+    					<path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z"/>
+					</svg>
+					<div>Prepared Data</div>
+				</div>
+				<div class="arrow arrow-to-algo">
+					<div class="line"></div>
+					<div class="triangle"></div>
+				</div>
+				<div class="apply-algo">Apply Algorithms</div>
+				<div class="arrow arrow-from-ml-algo">
+					<div class="line"></div>
+					<div class="triangle"></div>
+				</div>
+				<div class="ml-algo">
+					<div class="lower"></div>
+					<div class="upper">Machine Learning Algorithms</div>
+				</div>
+				<div class="arrow arrow-to-completion">
+					<div class="line"></div>
+					<div class="triangle"></div>
+				</div>
+				<div class="completed">Completed Model</div>
+			</div>
+		</div>
+		<div class="main-carousel" style="background: url(grey-bg-3.png) center; background-size: cover;">
+			<div class="carousel-cell">
+				<p class="text">Data is first sourced from a dataset.</p>
+			</div>
+			<div class="carousel-cell">
+				<p class="text">Then, they are formatted, cleaned and samples using data pre-processing modules.</p>
+			</div>
+			<div class="carousel-cell">
+				<p class="text">Once prepared data is obtained, they undergo they same cycle until they are desirable.</p>
+			</div>
+			<div class="carousel-cell">
+				<p class="text">Machine learning algorithms are then applied on the dataset.</p>
+			</div>
+			<div class="carousel-cell">
+				<p class="text">After which, the completed model is achieved.</p>
+			</div>
+		</div>
+		<button class="flickity-custom-button flickity-prev" disabled>
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/>
+				</svg>
+			</div>
+		</button>
+		<button class="flickity-custom-button flickity-next">
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+				</svg>
+			</div>
+		</button>
+	</section>
+	<section class="divide text-only scroll-animate">
+		<div class="wrapper">
+		<h2 class="no-shadow">Methods</h2>
+		<div class="text">
+			<div class="image scroll-animate">1</div>
+			<h3 class="scroll-animate">Random Undersampling</h3>
+			<p class="scroll-animate">Random undersampling is a process we used to bring down the number of non-fraudulent data to match that of fraudulent data. This is necessary to obtain a more accurate and reliable result as we had a completely imbalanced dataset to process.</p>
+		</div>
+		</div>
+	</section>
+	<section class="divide text-only scroll-animate no-shadow">
+		<div class="wrapper">
+		<div class="text">
+			<div class="image scroll-animate">2</div>
+			<h3 class="scroll-animate">K-fold Cross Validation</h3>
+			<img class="scroll-animate" src="kfold.jpg" alt="Diagram for k-fold cross validation">
+			<p class="scroll-animate">K-fold cross validation is a type of model evaluation method, where k is an integer that you choose, and the data is divided into k amount of subsets, and is iterated k amount of times. Each time, one of the subsets will be used as a test set and the rest as training sets. The computer will then take the mean score of all the iterations.</p>
+		</div>
+		</div>
+	</section>
+	<section class="divide text-only scroll-animate no-shadow">
+		<div class="wrapper">
+		<div class="text">
+			<div class="image scroll-animate">3</div>
+			<h3 class="scroll-animate">Logistic Regression</h3>
+			<img class="scroll-animate" src="lr.png" alt="Diagram for logistic regression">
+			<p class="scroll-animate">For the algorithm, we originally utilised logistic regression, which was perfect for what we set out to achieve, as our project aimed to produce a discrete outcome, which was either fraudulent or non-fraudulent. In addition to that, logistic regression is probability based, able to analyse the probability of a case being either fraudulent or non-fraudulent.</p>
+		</div>
+		</div>
+	</section>
+	<section class="divide text-only scroll-animate no-shadow">
+		<div class="wrapper">
+		<div class="text">
+			<div class="image scroll-animate">4</div>
+			<h3 class="scroll-animate">Support Vector Machine</h3>
+			<img class="scroll-animate" src="svm.png" alt="Diagram for support vector machine">
+			<p class="scroll-animate">After the semi-finals, we decided to switch from logistic regression to the Support Vector Machine. This is where each data item is plotted as a point in “n”-dimensional space, where n is the amount of features it has. Classification of the cases is performed by finding the optimum hyper-plane that can differentiate the 2 classes effectively, as seen from the diagram attached here.</p>
+		</div>
+		</div>
+	</section>
+	<footer class="scroll-animate">
+		<a class="left" href="litreview.html">
+			<span>Previous</span>
+			<div>
+				<svg viewBox="0 0 24 24">
+    				<path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
+				</svg>
+				<span>Literature Review</span>
+			</div>
+		</a>
+		<a class="right" href="results.html">
+			<span>Next</span>
+			<div>
+				<span>Results</span>
+				<svg viewBox="0 0 24 24">
+    				<path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+				</svg>
+			</div>
+		</a>
+	</footer>
+	<button class="fab animate">
+		<div>
+			<svg viewBox="0 0 24 24">
+    			<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+			</svg>
+		</div>
+	</button>
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+	<script src="script.js"></script>
+	<script>
+		var $carousel = document.getElementsByClassName('main-carousel'),
+			flkty = [
+				new Flickity($carousel[0], {
+				cellSelector: '.carousel-cell',
+				setGallerySize: false,
+				pageDots: false
+			}),
+				new Flickity($carousel[1], {
+				cellSelector: '.carousel-cell',
+				setGallerySize: false,
+				pageDots: false})
+					],
+			$slider = document.getElementsByClassName('flickity-slider'),
+			$prevbutton = document.getElementsByClassName('flickity-prev'),
+			$nextbutton = document.getElementsByClassName('flickity-next'),
+			$process = document.getElementsByClassName('process')[0],
+			observer = new MutationObserver(function(mutations) {
+				mutations.forEach(function(mutation) {
+					checkSelected(mutation.target);
+			})}),
+			f;
+		for (f = 0; f < $carousel.length; f++) {
+			$prevbutton[f].addEventListener('click', prev.bind(null, f));
+			$nextbutton[f].addEventListener('click', next.bind(null, f));
+			checkSelected($slider[f]);
+			observer.observe($slider[f], {attributes: true, attributeFilter: ['style']});
+		}
+		function prev(f) {
+			flkty[f].previous();
+			if ($nextbutton[f].hasAttributes('disabled')) $nextbutton[f].removeAttribute('disabled');
+			checkSelected($slider[f]);
+		}
+		function next(f) {
+			flkty[f].next();
+			if ($prevbutton[f].hasAttributes('disabled')) $prevbutton[f].removeAttribute('disabled');
+			checkSelected($slider[f]);
+		}
+		function checkSelected(target) {
+			var $prev = target.parentElement.parentElement.parentElement.getElementsByClassName('flickity-prev')[0],
+				$next = target.parentElement.parentElement.parentElement.getElementsByClassName('flickity-next')[0];
+			if (target.firstElementChild.classList.contains('is-selected')) {
+				$prev.setAttribute('disabled',"");
+				$next.removeAttribute('disabled');
+			}
+			else if (target.lastElementChild.classList.contains('is-selected')) {
+				$next.setAttribute('disabled',"");
+				$prev.removeAttribute('disabled');
+			}
+			else {
+				$next.removeAttribute('disabled');
+				$prev.removeAttribute('disabled');
+			}
+			if (target == $slider[1]) {
+				var s;
+				for (s = 0; s < target.children.length; s++) {
+					if (target.children[s].classList.contains('is-selected')) {
+						$process.className = 'flkty-carousel process s' + s;
+						break;
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

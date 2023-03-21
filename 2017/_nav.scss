@@ -1,0 +1,337 @@
+// Navbar Styles
+
+// Normal Navbar
+nav {
+	position: fixed;
+	height: 64px;
+	@include media(medium-width) { height: 56px; }
+	@include media(small-height) { height: 48px; }
+	@include position(0,0,null,0);
+	background: $primary-color;
+	box-shadow: $elevation-4;
+	@include transition(all .3s, height 0s);
+	z-index: 3;
+	.title {
+		padding: 16px 24px 16px 80px;
+		color: $text-color-inverse;
+		@include font-style(20px_32px);
+		@include media(medium-width) { padding: 12px 24px 12px 72px; }
+		@include media(small-height) { padding-top: 12px; padding-bottom: 12px; @include font-style(18px_24px);}
+	}
+	
+	// Waterfall navbar
+	&.waterfall {
+		position: absolute;
+		height: 256px;
+		box-shadow: $elevation-0;
+		@include transition(opacity .3s, transform .4s, box-shadow .3s);
+	
+		h1 {
+			text-shadow: 0 0 1px rgba(0,0,0,.4), 0 0 8px rgba(0,0,0,.2);
+		}
+		
+		&.animate {
+			opacity: 0;
+			@include transform(translateY(-100px));
+			will-change: opacity, transform;
+			
+			.bg-wrapper {
+				@include transform(translateY(50px));
+				will-change: transform;
+			}
+		}
+		.bg-wrapper {
+			opacity: 1;
+		}
+	}
+	> div {
+		position: relative;
+		height: 100%;
+	}
+	h1 {
+		display: inline-block;
+		position: absolute;
+		max-height: 72px;
+		@include position(null,24px,80px,80px); // to (navheight/2 - 18)px, font-size from 48px to 20px
+		@include font-style(56px_48px,400);
+		text-align: left;
+		vertical-align: bottom;
+		z-index: 9;
+		overflow: visible;
+		
+		@include media(medium-width) { @include position(null,null,null,72px); }
+		
+		@include media(small-width) { 
+			max-height: none;
+			@include position(null,null,36px,null);
+			@include font-style(44px);
+		}
+	}
+	.bg-wrapper {
+		height: 100%;
+		opacity: 0;
+		@include transition(transform .3s, opacity .2s);
+	}
+	.bg-image {
+		height: 100%;
+		background: url(material.jpg) center;
+		background-size: cover;
+	}
+	
+	&.hide, &.animate {
+		visibility: hidden;
+		@include transform(translateY(-64px));
+		@include transition(transform .3s, visibility 0s .6s, box-shadow .6s);
+		will-change: transform;
+		box-shadow: none;
+	}
+	
+	&.fade {
+		opacity: 0;
+		box-shadow: none;
+		@include transition(all .3s, box-shadow 0s, opacity .16s);
+	}
+	
+	// Invisible element called 'ghost' to detect whether mouse is near the navbar so as to reveal it
+	@include media(large-width) {
+		&.hide ~ .ghost {
+			position: fixed;
+			height: 64px;
+			width: 72px;
+			@include position(0,null,null,0);
+			z-index: 8;
+		}
+		// To allow javascript to detect the style so as to prevent navbar from hiding when mouse is above the navbar
+		&:hover ~ .ghost {
+			opacity: 0;
+		}
+	}
+}
+
+
+// Menu Styles
+.menu {
+    position: fixed;
+    height: 48px;
+    width: 48px;
+	@include position(8px,null,null,12px);
+	@include media(medium-width) { @include position(4px,null,null,4px); }
+	@include media(small-height) { @include position(0,null,null,null); }
+	border-radius: 50%;
+    background: transparent;
+    @include transition(transform .3s, background .2s);
+    z-index: 6;
+	
+	> div {
+		border-radius: 50%;
+    	padding: 12px;
+		@include transform-origin(32% 50%);
+		@include transition(transform .22s);
+	}
+	svg {
+		height: 24px;
+		width: 24px;
+		fill: $icon-color-inverse;
+	}
+	
+	&:active {
+		background: $darker;
+		&.dark-bg-true {
+			background: rgba(255,255,255,.1);
+		}
+	}
+	
+	&:hover {
+		@include media(large-width) { 
+			background: $darker;
+			&.dark-bg-true {
+				background: rgba(255,255,255,.1);
+			}
+			// To allow javascript to detect the style so as to prevent navbar from hiding when mouse is above the menu
+			~ .ghost {
+				opacity: 0;
+			}
+		}
+	}
+	
+	&.hide {
+		visibility: hidden;
+		@include transform(translateY(-69px));
+		@include transition(transform .3s, visibility 0s .3s, background .2s);
+	}
+	
+	&.animate {
+    	background: transparent !important;
+		> div {
+			@include transform(scaleX(0));
+			will-change: transform;
+		}
+	}
+	
+	&:hover + .nav-drawer {
+		will-change: transform;
+	}
+}
+
+
+// Nav drawer styles
+
+// Small invisible element on the left to detect touches which allows dragging of nav drawer
+.drag-nav-drawer {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+	@include position(0,null,null,-100%);
+	@include transform(translateX(16px));
+	z-index: 7;
+}
+
+// import header styles before nav drawer so the logo in nav drawer can inherit styles from the header
+@import 'header';
+
+.nav-drawer {
+	visibility: hidden;
+    position: fixed;
+    height: 100vh;
+    width: 300px;
+	max-width: calc(100% - 56px);
+	@include position(0,null,null,0);
+	background: $white;
+	@include transform(translateX(-100%));
+	@include transition(transform .3s, visibility 0s .3s);
+	box-shadow: $elevation-16;
+	z-index: 10;
+	// Wrapper container to enable scrollbar transition on large devices
+	> .scrollbar-animate {
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	// Enable scrollbar animation on large devices
+	@include media(large-width) {
+		> * {
+			width: 320px;
+			@include transform(none);
+			@include transition(transform .2s);
+			@include transition-delay(1s);
+			
+			> * {
+				width: 300px;
+				@include transform(none);
+				@include transition(transform .2s);
+				@include transition-delay(1s);
+			}
+		}
+		&:hover > * {
+			@include transform(translateX(-20px));
+			@include transition-delay(0s);
+			
+			> * {
+				@include transform(translateX(20px));
+				@include transition-delay(0s);
+			}
+		}
+	}
+	// Logo in nav drawer
+	.logo {
+		position: relative;
+		height: 160px;
+		background: url(map.svg) center no-repeat $primary-color;
+		background-size: cover;
+		
+		> header {
+			width: 400px;
+			padding: 6px 0 0 0;
+			@include position(50%,null,null,50%);
+			@include transform(translate(-50%,-50%) scale(.7));
+		}
+		
+		h1 {
+			> div {
+				@include animation(none);
+				@include transform(none);
+				opacity: 1;
+			}
+			> div:last-child {
+				margin: 7.5px 0 7.5px 12px;
+			}
+		}
+	}
+	// List of links
+	ul {	
+		list-style: none;
+		padding: 8px 0;
+		
+		li {
+			display: block;
+			position: relative;
+			height: 48px;
+			// icon
+			svg {
+				position: absolute;
+				height: 24px;
+				width: 24px;
+				@include position(50%,null,null,20px);
+				fill: $icon-color;
+				@include transform(translateY(-50%));
+				z-index: 1;
+				pointer-events: none;
+			}
+			// link
+			a {
+				display: block;
+				padding: 14px 16px 14px 72px;
+				color: $text-color;
+				@include font-style(_20px,500);
+				text-decoration: none;
+				@include transition(background .4s);
+			}
+			a:hover {
+				background: $light-grey;
+				@include transition(background .2s);
+			}
+		}
+		li.active {
+			svg {
+				fill: $primary-color;
+			}
+			a {
+				background: $grey;
+				color: $primary-color;
+			}
+		}
+	}
+	
+	&.active {
+		visibility: visible;
+		@include transform(none);
+		@include transition-delay(0s);
+		will-change: transform;
+		// show scrim when nav is active
+		+ .scrim {
+			visibility: visible;
+			opacity: 1;
+			@include transition-delay(0s);
+		}
+	}
+	// While dragging, prevent links from being pressed, by overlaying an invisible element
+	&.dragging:after {
+		content: '';
+		display: block;
+		height: 100vh;
+		width: 100%;
+		@include transform(translateY(-100vh));
+	}
+}
+
+
+// Dark, fullscreen layer which shows when nav drawer is active
+.scrim {
+	visibility: hidden;
+    position: absolute;
+	@include fullscreen;
+	background: rgba(0,0,0,.5);
+	opacity: 0;
+	@include transition(opacity .3s, visibility 0s .3s);
+	z-index: 9;
+}
