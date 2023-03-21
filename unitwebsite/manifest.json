@@ -2,7 +2,7 @@
 	"name": "HCINPCC Unit Website",
 	"short_name": "HCINPCC",
 	"description": "The Official HCINPCC Unit Website",
-	"start_url": "/",
+	"start_url": "./",
 	"display": "standalone",
 	"background_color": "#FFF",
 	"theme_color": "#000",
