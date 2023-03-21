@@ -1,0 +1,27 @@
+{
+  "name": "hcinpcc.github.io",
+  "version": "1.0.0",
+  "description": "The official website of Hwa Chong Institution National Police Cadet Corps (HCINPCC). Come take a look at our unforgettable journey in NPCC!",
+  "private": true,
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint *.js || true",
+    "lint-fix": "./node_modules/.bin/eslint --fix *.js || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcinpcc/hcinpcc.github.io.git"
+  },
+  "keywords": [
+    "hcinpcc",
+    "website"
+  ],
+  "author": "HCINPCC Batch 49",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/hcinpcc/hcinpcc.github.io/issues"
+  },
+  "homepage": "https://hcinpcc.github.io",
+  "devDependencies": {
+    "eslint": "^5.11.1"
+  }
+}

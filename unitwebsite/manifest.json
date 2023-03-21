@@ -1,0 +1,23 @@
+{
+	"name": "HCINPCC Unit Website",
+	"short_name": "HCINPCC",
+	"description": "The Official HCINPCC Unit Website",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#FFF",
+	"theme_color": "#000",
+	"icons": [
+		{
+			"src": "/images/hci.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/images/hci-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"dir": "auto",
+	"lang": "en-GB"
+}

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#000">
+	<meta name="description" content="Our amazing Executive Committee (ExCo) in HCINPCC.">
+	<meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='0'>
+	<meta http-equiv='pragma' content='no-cache'>
+	<title>Unit Hierarchy • HCINPCC Unit Website</title>
+	<link rel="preload" href="fonts/roboto-subset.woff2" as="font" type="font/woff2" crossorigin>
+	<script>'use strict'; document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('DOMloaded'); document.body.classList.add('no-transition'); setTimeout(function () { document.body.classList.remove('no-transition'); }, 300); if (window.matchMedia('(min-width:1024px) and (min-height:450px)').matches) document.body.classList.add('nav-active'); }); if ('serviceWorker' in navigator) if (navigator.serviceWorker.controller) document.documentElement.className = 'subset-font-loaded all-fonts-loaded'</script>
+	<link rel="icon" href="images/hci.png">
+	<link rel="shortcut icon" href="images/hci.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="style.min.css">
+	<link rel="stylesheet" href="font.css">
+	<script src="font.js" async></script>
+	<script src="script.min.js" defer></script>
+	<script src="flickity.pkgd.min.js" defer></script>
+
+	<style class="ajax-style">
+		section {
+			text-align: center;
+		}
+
+		section.parallax-wrapper {
+			height: 100vh;
+			background: #000;
+		}
+
+		section.parallax-wrapper .parallax {
+			position: relative;
+			height: 100vh;
+			transform-origin: top;
+		}
+
+		section.parallax-wrapper .exco-image,
+		section.parallax-wrapper .exco-background {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: url(page-resources/exco/exco-image-2021.jpg) center no-repeat;
+			background-size: contain;
+			z-index: 1;
+		}
+
+		section.parallax-wrapper .exco-background {
+			background-size: cover;
+			background-image: url(data:image/jpeg;base64,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);
+		}
+
+		section.main a {
+			display: block;
+			margin: 40px 0 20px;
+		}
+
+		section.main a img {
+			display: block;
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			transition: opacity .5s cubic-bezier(.4, 0, .2, 1);
+		}
+
+		section.main a img.loaded {
+			opacity: 1;
+		}
+
+		section.main a .desc {
+			margin-top: 69.63249516%;
+			/*   Image Height/Image Width   */
+			padding: 12px 16px;
+			background: #F5F5F5;
+			font-size: 15px;
+			font-weight: 500;
+			line-height: 24px;
+		}
+
+		section.main a .ripple {
+			background: rgba(0, 0, 0, .09);
+		}
+
+		section.main a .ripple.appear {
+			transition: transform .7s cubic-bezier(.4, 0, .2, 1), opacity .3s;
+		}
+
+		section.main a .ripple.finish.fade-out {
+			transition: transform .7s cubic-bezier(.4, 0, .2, 1), opacity .5s;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="progress">
+		<div>
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="navbar">
+		<button class="menu" aria-label="Menu">
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+				</svg>
+			</div>
+		</button>
+		<picture>
+			<source srcset="images/hcinpcc-75x40.png, images/hcinpcc-150x80.png 2x, images/hcinpcc-225x120.png 3x, images/hcinpcc-300x160.png 4x">
+			<img class="fade" src="images/hcinpcc-150x80.png" alt="HCINPCC Logo">
+		</picture>
+	</div>
+	<div class="nav-gradient"></div>
+	<div class="nav-drawer">
+		<div class="scrollbar-animate">
+			<div class="wrapper">
+				<ul>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+						</svg>
+						<a href="./">Home</a>
+					</li>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+							/>
+						</svg>
+						<a href="gallery">Gallery</a>
+					</li>
+					<li class="dropdown dropdown-open active">
+						<button>
+							<div>About HCINPCC</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="info">NPCC Information</a>
+							</li>
+							<li>
+								<a href="roh">Roll of Honour</a>
+							</li>
+							<li>
+								<a href="officers">Officers</a>
+							</li>
+							<li class="active">
+								<a href="exco">Unit Hierarchy</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Publications</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="https://hcinpcc.wordpress.com" target="_blank">Articles</a>
+								<div class="external">
+									<svg viewBox="0 0 24 24">
+										<path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+										/>
+									</svg>
+								</div>
+							</li>
+							<li>
+								<a href="ac">Annual Chronicles</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Help</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="links">Useful Links</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="social-media">
+					<li>
+						<a href="https://www.instagram.com/hcinpcc/" target="_blank">Follow Us On Instagram</a>
+						<img src="images/instagram-black.svg">
+						<img src="images/instagram-color.svg">
+					</li>
+					<li class="pwa-install">
+						<button>
+							<div>Install App</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+						</svg>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="scrim"></div>
+	<div class="drag-nav-drawer"></div>
+	<div class="nav-links-tooltip">
+		<div class="wrapper">
+			<span>Home</span>
+			<span></span>
+		</div>
+	</div>
+
+	<div class="ajax-content">
+		<section class="parallax-wrapper">
+			<div class="parallax">
+				<div class="exco-background"></div>
+				<div class="exco-image"></div>
+			</div>
+		</section>
+		<section class="main">
+			<h1>Unit Hierarchy</h1>
+			<a class="button" target="_blank" href="page-resources/exco/SS21_ExCoChart.pdf">
+				<picture>
+					<source type="image/webp" srcset="page-resources/exco/exco-chart-2021.webp">
+					<img class="fade" src="page-resources/exco/exco-chart-2021.jpg" alt="ExCo Chart">
+				</picture>
+				<div class="desc">ExCo Chart</div>
+			</a>
+		</section>
+		<section class="footer">
+			<footer>
+				© 2021
+				<span>Hwa Chong Institution National Police Cadet Corps</span>
+				<span>HCINPCC</span>
+			</footer>
+		</section>
+	</div>
+	<div class="error">An error occured. Please try again later.</div>
+	<script class="ajax-script">
+		function customJS() {
+			if (typeof (Ajax) !== 'undefined') {
+				Ajax.script = document.getElementsByClassName('ajax-script')[0];
+
+				parallax = document.getElementsByClassName('parallax')[0];
+				var timer,
+					touch;
+
+				parallax.addEventListener('touchstart', function () {
+					touch = true;
+				}, supportsPassive ? { passive: true } : false);
+
+				parallax.addEventListener('mousemove', function () {
+					if (!touch) imgActive();
+					touch = false;
+				});
+
+				parallax.addEventListener('click', function () {
+					if (!mousemove) imgActive();
+					else {
+						clearTimeout(timer);
+						mousemove = false;
+					}
+				});
+
+				function imgActive() {
+					mousemove = true;
+					clearTimeout(timer);
+					timer = setTimeout(function () { mousemove = false; }, 1500);
+				}
+
+				Ajax.removeListener = function () {
+					parallax = null;
+					clearTimeout(timer);
+					mousemove = true;
+				}
+			}
+			else setTimeout(customJS, 100);
+		}
+		customJS();
+	</script>
+</body>
+
+</html>

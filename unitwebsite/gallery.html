@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#000">
+	<meta name="description" content="Experience our NPCC journey though our camera lenses!">
+	<title>Gallery • HCINPCC Unit Website</title>
+	<link rel="preload" href="fonts/roboto-subset.woff2" as="font" type="font/woff2" crossorigin>
+	<script>'use strict'; document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('DOMloaded'); document.body.classList.add('no-transition'); setTimeout(function () { document.body.classList.remove('no-transition'); }, 300); if (window.matchMedia('(min-width:1024px) and (min-height:450px)').matches) document.body.classList.add('nav-active'); }); if ('serviceWorker' in navigator) if (navigator.serviceWorker.controller) document.documentElement.className = 'subset-font-loaded all-fonts-loaded'</script>
+	<link rel="icon" href="images/hci.png">
+	<link rel="shortcut icon" href="images/hci.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="style.min.css">
+	<link rel="stylesheet" href="font.css">
+	<script src="font.js" async></script>
+	<script src="script.min.js" defer></script>
+	<script src="flickity.pkgd.min.js" defer></script>
+
+	<style class="ajax-style">
+		html.carousel-open {
+			overflow-y: hidden !important;
+		}
+
+		section.title,
+		section.footer {
+			background: transparent;
+		}
+
+		section.title h1 {
+			max-width: calc(100% - 32px);
+			width: 880px;
+			margin: 0 auto;
+			padding: 48px 0 0;
+			color: rgba(0, 0, 0, .87);
+		}
+
+		@media (max-width:767px),
+		(max-height:450px) {
+			section.title h1 {
+				padding-top: 128px;
+			}
+		}
+
+		section.main {
+			max-width: calc(100% - 4px);
+			width: 904px;
+			margin: 0 auto;
+		}
+
+		section.footer {
+			max-width: calc(100% - 32px);
+			width: 880px;
+			left: 50%;
+			right: auto;
+			padding: 24px 0;
+			transform: translateX(-50%);
+		}
+
+		section.footer footer,
+		section.footer span {
+			color: rgba(0, 0, 0, .54);
+			font-weight: 500;
+			text-align: left;
+		}
+
+		section.footer span {
+			display: inline;
+		}
+
+		section.footer footer::before,
+		section.title::after {
+			content: none;
+		}
+
+		section.main,
+		section.title+section.main {
+			padding: 0 0 72px;
+		}
+
+		section.main h3 {
+			margin: 20px 0 12px;
+			padding: 0 14px;
+			font-size: 16px;
+			font-weight: 500;
+		}
+
+		.gallery {
+			display: grid;
+			margin: -1px 13px 14px;
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+		.no-grid .gallery::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+
+		section.main .gallery>* {
+			position: relative;
+			border: 1px solid #FFF;
+			border-radius: 0;
+			background: #F5F5F5;
+			box-shadow: none !important;
+			cursor: pointer;
+			-webkit-tap-highlight-color: transparent;
+		}
+
+		.no-grid .gallery>* {
+			float: left;
+			width: 16.666667%;
+		}
+
+		.gallery>*::before {
+			content: '';
+			display: block;
+			padding-top: 100%;
+		}
+
+		.no-grid .gallery>*::before {
+			padding-top: 100% !important;
+		}
+
+		.gallery>*.large {
+			grid-column-end: span 2;
+			grid-row-end: span 2;
+		}
+
+		.gallery>*.super-large {
+			grid-column-end: span 3;
+			grid-row-end: span 3;
+		}
+
+		.gallery>*.wide {
+			grid-column-end: span 2;
+		}
+
+		.gallery>*.wide::before {
+			padding-top: 50%;
+		}
+
+		.gallery>*.super-wide {
+			grid-column-end: span 3;
+		}
+
+		.gallery>*.super-wide::before {
+			padding-top: 33.33333%;
+		}
+
+		.gallery>*.tall {
+			grid-row-end: span 2;
+		}
+
+		.gallery>*.tall::before {
+			padding-top: 300%;
+		}
+
+		.gallery>* img,
+		.no-grid .gallery>*.fill-width img {
+			display: block;
+			position: absolute;
+			height: 100%;
+			width: auto;
+			top: 0;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: opacity .2s cubic-bezier(.4, 0, .2, 1);
+		}
+
+		.gallery>*.fill-width img {
+			height: auto;
+			width: 100%;
+			top: 50%;
+			right: 0;
+			bottom: auto;
+			left: 0;
+			transform: translateY(-50%);
+		}
+
+		@media (max-width: 1272px) {
+			section.title h1,
+			section.footer {
+				width: 780px;
+			}
+			section.main {
+				width: 808px;
+			}
+			.gallery {
+				grid-template-columns: repeat(5, 1fr);
+			}
+			.no-grid .gallery>* {
+				width: 20%;
+			}
+		}
+
+		@media (max-width: 1172px) {
+			section.title h1,
+			section.footer {
+				width: 680px;
+			}
+			section.main {
+				width: 708px;
+			}
+		}
+
+		@media (max-width: 1072px) {
+			section.title h1,
+			section.footer {
+				width: 580px;
+			}
+			section.main {
+				width: 608px;
+			}
+			.gallery {
+				grid-template-columns: repeat(4, 1fr);
+			}
+			.no-grid .gallery>* {
+				width: 25%;
+			}
+		}
+
+		@media (max-width: 620px) {
+			.gallery {
+				margin: -1px -1px 14px;
+			}
+		}
+
+		@media (max-width: 450px) {
+			.gallery {
+				grid-template-columns: repeat(3, 1fr);
+			}
+			.no-grid .gallery>* {
+				width: 33.333333%;
+			}
+			section.footer span:first-of-type {
+				display: none;
+			}
+			section.footer span:last-of-type {
+				display: inline;
+			}
+		}
+
+		@media (max-width: 320px) {
+			.gallery {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			.no-grid .gallery>* {
+				width: 50%;
+			}
+		}
+
+		section.carousel-wrapper,
+		section.hero-wrapper {
+			position: fixed;
+			height: 100vh;
+			top: 0;
+			right: 0;
+			left: 0;
+			background: #000;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity .3s cubic-bezier(.4, 0, .2, 1), visibility 0s .3s;
+			z-index: 10;
+		}
+
+		section.carousel-wrapper.appear {
+			opacity: 1;
+			visibility: visible;
+			transition-delay: 0s;
+		}
+
+		@media (min-width:768px) and (min-height:450px) {
+			section.carousel-wrapper,
+			section.hero-wrapper {
+				left: 56px;
+			}
+		}
+
+		@media (min-width:1024px) and (min-height:450px) {
+			section.carousel-wrapper,
+			section.hero-wrapper {
+				transition: left .3s cubic-bezier(.3, .3, 0, 1), opacity .3s cubic-bezier(.4, 0, .2, 1), visibility 0s .3s;
+			}
+			body.nav-active section.carousel-wrapper,
+			body.nav-active section.hero-wrapper {
+				left: 300px;
+			}
+		}
+
+		section.carousel-wrapper .carousel {
+			height: 100vh;
+		}
+
+		.tabbing .carousel:focus::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: #000;
+			animation: focused .6s cubic-bezier(.4, 0, .2, 1) forwards;
+			pointer-events: none;
+		}
+
+		@keyframes focused {
+			0% {
+				opacity: 0;
+			}
+			50% {
+				opacity: .5;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		section.carousel-wrapper .carousel .flickity-viewport,
+		section.carousel-wrapper .carousel .flickity-slider {
+			overflow: visible;
+		}
+
+		section.carousel-wrapper .carousel-cell {
+			width: 100%;
+			height: 100vh;
+		}
+
+		section.carousel-wrapper .carousel-cell .wrapper {
+			position: relative;
+			height: 100%;
+		}
+
+		section.carousel-wrapper .carousel-cell .wrapper img {
+			position: absolute;
+			height: 100%;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			opacity: 0;
+		}
+
+		section.carousel-wrapper .carousel-cell .wrapper.fill-width img {
+			height: auto;
+			width: 100%;
+			top: 50%;
+			bottom: auto;
+			left: 0;
+			transform: translateY(-50%);
+		}
+
+		section.carousel-wrapper.button-appear .carousel-cell .wrapper img {
+			opacity: 1;
+		}
+
+		section.carousel-wrapper.button-appear .carousel-cell .wrapper img.fade {
+			opacity: 0;
+			transition: opacity .5s cubic-bezier(.4, 0, .2, 1) !important;
+		}
+
+		section.carousel-wrapper.button-appear .carousel-cell .wrapper img.fade.loaded {
+			opacity: 1;
+		}
+
+		section.carousel-wrapper.button-appear .carousel-cell .wrapper img.fade.no-fade {
+			transition: none !important;
+		}
+
+		.flickity-custom-button {
+			position: absolute;
+			height: 48px;
+			width: 48px;
+			top: 50%;
+			outline: 0;
+			border-radius: 50% !important;
+			padding: 0;
+			background: rgba(0, 0, 0, .5);
+			transform: translateY(-50%);
+			visibility: hidden;
+			opacity: 0;
+			transition: background .3s, visibility 0s .3s, opacity .3s;
+			box-shadow: none !important;
+		}
+
+		.tabbing .button-appear .carousel:focus~.flickity-custom-button,
+		.button-appear .mousemove~.flickity-custom-button {
+			visibility: visible;
+			opacity: 1;
+			transition-delay: 0s;
+		}
+
+		.flickity-custom-button.flickity-prev {
+			left: 10px;
+		}
+
+		.flickity-custom-button.flickity-next {
+			right: 10px;
+		}
+
+		.button-appear .carousel.first-cell~.flickity-custom-button.flickity-prev,
+		.button-appear .carousel.last-cell~.flickity-custom-button.flickity-next {
+			visibility: hidden;
+			opacity: 0;
+			transition: background .3s, visibility 0s .3s, opacity .3s;
+		}
+
+		.flickity-custom-button.close {
+			top: 10px;
+			right: 10px;
+			transform: none;
+		}
+
+		.flickity-custom-button.hover,
+		.flickity-custom-button:active,
+		.tabbing .flickity-custom-button:focus {
+			background: #3F51B5;
+		}
+
+		.flickity-custom-button>div {
+			padding: 10px;
+		}
+
+		.flickity-custom-button.close>div {
+			padding: 12px;
+		}
+
+		.flickity-custom-button svg {
+			height: 28px;
+			width: 28px;
+			fill: #FFF;
+		}
+
+		.flickity-custom-button.close svg {
+			height: 24px;
+			width: 24px;
+		}
+
+		.flickity-custom-button .ripple {
+			background: rgba(255, 255, 255, .3);
+		}
+
+		section.hero-wrapper {
+			background: transparent;
+			opacity: 1;
+			visibility: visible;
+			overflow: visible;
+			pointer-events: none;
+		}
+
+		.hero {
+			height: 100vh;
+			opacity: 0;
+			pointer-events: none;
+			overflow: visible;
+		}
+
+		.hero.active {
+			opacity: 1;
+			transition: transform .25s cubic-bezier(.3, 0, .7, 1) .05s;
+		}
+
+		.hero.final.active {
+			transition: transform .3s cubic-bezier(.6, .3, .2, 1);
+		}
+
+		.hero * {
+			height: 100vh;
+		}
+
+		.hero.active .hero-x {
+			transition: transform .25s cubic-bezier(0, .2, .2, 1) .03s;
+		}
+
+		.hero.final.active .hero-x {
+			transition: transform .3s cubic-bezier(.6, .3, .2, 1);
+		}
+
+		.hero.active .wrapper,
+		.hero.active .wrapper img {
+			transition: transform .16s cubic-bezier(.2, 0, .4, 1);
+		}
+
+		.hero.final.active .wrapper,
+		.hero.final.active .wrapper img {
+			transition: transform .3s cubic-bezier(.6, .3, .2, 1);
+		}
+
+		.hero.final,
+		.hero.final * {
+			transform: none !important;
+		}
+
+		.hero.fill-width * {
+			height: auto;
+			width: 100%;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="progress">
+		<div>
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="navbar">
+		<button class="menu" aria-label="Menu">
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+				</svg>
+			</div>
+		</button>
+		<picture>
+			<source srcset="images/hcinpcc-75x40.png, images/hcinpcc-150x80.png 2x, images/hcinpcc-225x120.png 3x, images/hcinpcc-300x160.png 4x">
+			<img class="fade" src="images/hcinpcc-150x80.png" alt="HCINPCC Logo">
+		</picture>
+	</div>
+	<div class="nav-gradient"></div>
+	<div class="nav-drawer">
+		<div class="scrollbar-animate">
+			<div class="wrapper">
+				<ul>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+						</svg>
+						<a href="./">Home</a>
+					</li>
+					<li class="active">
+						<svg viewBox="0 0 24 24">
+							<path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+							/>
+						</svg>
+						<a href="gallery">Gallery</a>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>About HCINPCC</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="info">NPCC Information</a>
+							</li>
+							<li>
+								<a href="roh">Roll of Honour</a>
+							</li>
+							<li>
+								<a href="officers">Officers</a>
+							</li>
+							<li>
+								<a href="exco">Unit Hierarchy</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Publications</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="https://hcinpcc.wordpress.com" target="_blank">Articles</a>
+								<div class="external">
+									<svg viewBox="0 0 24 24">
+										<path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+										/>
+									</svg>
+								</div>
+							</li>
+							<li>
+								<a href="ac">Annual Chronicles</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Help</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="links">Useful Links</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="social-media">
+					<li>
+						<a href="https://www.instagram.com/hcinpcc/" target="_blank">Follow Us On Instagram</a>
+						<img src="images/instagram-black.svg">
+						<img src="images/instagram-color.svg">
+					</li>
+					<li class="pwa-install">
+						<button>
+							<div>Install App</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+						</svg>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="scrim"></div>
+	<div class="drag-nav-drawer"></div>
+	<div class="nav-links-tooltip">
+		<div class="wrapper">
+			<span>Home</span>
+			<span></span>
+		</div>
+	</div>
+
+	<div class="ajax-content">
+		<section class="title">
+			<h1>Gallery</h1>
+		</section>
+		<section class="main">
+			<h3>2018</h3>
+			<div class="gallery">
+				<div class="large" data-img-src="images/gallery/2018/np-day-1.jpg">
+					<img class="fade" src="images/gallery/2018/np-day-1-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/np-day-2.jpg">
+					<img class="fade" src="images/gallery/2018/np-day-2-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/cd.jpg">
+					<img class="fade" src="images/gallery/2018/cd-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/sc.jpg">
+					<img class="fade" src="images/gallery/2018/sc.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/uc.jpg">
+					<img class="fade" src="images/gallery/2018/uc-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/oh.jpg">
+					<img class="fade" src="images/gallery/2018/oh-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/ccc-1.jpg">
+					<img class="fade" src="images/gallery/2018/ccc-1-small.jpg">
+				</div>
+				<div class="wide fill-width" data-img-src="images/gallery/2018/np-day-3.jpg">
+					<img class="fade" src="images/gallery/2018/np-day-3.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/pop.jpg">
+					<img class="fade" src="images/gallery/2018/pop-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/np-day-4.jpg">
+					<img class="fade" src="images/gallery/2018/np-day-4.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/ccc-2.jpg">
+					<img class="fade" src="images/gallery/2018/ccc-2-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/ccc-3.jpg">
+					<img class="fade" src="images/gallery/2018/ccc-3-small.jpg">
+				</div>
+				<div data-img-src="images/gallery/2018/npap.jpg">
+					<img class="fade" src="images/gallery/2018/npap-small.jpg">
+				</div>
+			</div>
+		</section>
+		<section class="footer">
+			<footer>
+				© 2020
+				<span>Hwa Chong Institution National Police Cadet Corps</span>
+				<span>HCINPCC</span>
+			</footer>
+		</section>
+	</div>
+
+	<div class="error">An error occured. Please try again later.</div>
+	<script class="ajax-script">
+		var flkty,
+			main = document.getElementsByClassName('main')[0],
+			supportGrid,
+			carousel,
+			galleries = main.getElementsByClassName('gallery'),
+			gLength = galleries.length;
+		(function () {
+			var elem = document.createElement('div');
+			supportGrid = typeof (elem.style.grid) === 'string';
+			if (!supportGrid) document.body.classList.add('no-grid');
+			var head = document.head, head0 = head.firstElementChild;
+			if (head0.getAttribute('href') != 'flickity.min.css') {
+				var l = document.createElement('link');
+				l.rel = 'stylesheet';
+				l.href = 'flickity.min.css';
+				head.insertBefore(l, head0);
+			}
+			var innerHtml = ' \
+		<section class="carousel-wrapper"> \
+			<div class="carousel"></div> \
+			<button class="flickity-custom-button close" aria-label="Close Carousel"> \
+				<div> \
+					<svg viewBox="0 0 24 24"> \
+						<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/> \
+					</svg> \
+				</div> \
+			</button> \
+			<button class="flickity-custom-button flickity-prev" aria-label="Previous Image"> \
+				<div> \
+					<svg viewBox="0 0 24 24"> \
+						<path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"/> \
+					</svg> \
+				</div> \
+			</button> \
+			<button class="flickity-custom-button flickity-next" aria-label="Next Image"> \
+				<div> \
+					<svg viewBox="0 0 24 24"> \
+						<path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/> \
+					</svg> \
+				</div> \
+			</button> \
+		</section> \
+		<section class="hero-wrapper"> \
+			<div class="hero"> \
+				<div class="hero-x"> \
+					<div class="wrapper"> \
+						<img> \
+					</div> \
+				</div> \
+			</div> \
+		</section>',
+				ajaxContent = document.getElementsByClassName('ajax-content')[0];
+			ajaxContent.insertAdjacentHTML('afterend', innerHtml);
+			carousel = document.getElementsByClassName('carousel')[0];
+			function appendCell(galleryIndex, imgIndex) {
+				var div = document.createElement('div');
+				div.className = 'carousel-cell';
+				div.setAttribute('data-gallery-index', galleryIndex);
+				div.setAttribute('data-image-index', imgIndex);
+				div.innerHTML = '<div class="wrapper"><img><img></div>';
+				carousel.appendChild(div);
+			}
+			for (var g = 0; g < gLength; g++) {
+				var images = galleries[g].children, iLength = images.length;
+				for (var i = 0; i < iLength; i++) {
+					appendCell(g, i);
+				}
+			}
+		})();
+		function customJS() {
+			if (typeof (Ajax) !== 'undefined' && typeof (Flickity) !== 'undefined') {
+				Ajax.script = document.getElementsByClassName('ajax-script')[0];
+
+				rippleCheck();
+
+				carousel = document.getElementsByClassName('carousel')[0];
+
+				flkty = new Flickity(carousel, {
+					prevNextButtons: false,
+					pageDots: false,
+					setGallerySize: false,
+					dragThreshold: 10,
+					selectedAttraction: 0.1,
+					friction: 0.6,
+					draggable: true
+				});
+
+				var hoverlist = document.querySelectorAll('.flickity-custom-button'),
+					carouselhover = false,
+					touch = false,
+					touchtimer,
+					h,
+					hoverTouch = false,
+					hoverTouchTimer,
+					timer;
+
+				function hoverlistEnter() {
+					carouselhover = true;
+					clearTimeout(timer);
+					clearTimeout(touchtimer);
+					mousemove = true;
+					carousel.classList.add('mousemove');
+				}
+
+				for (h = 0; h < hoverlist.length; h++) {
+					if ('PointerEvent' in window) {
+						hoverlist[h].addEventListener('pointerenter', hoverlistEnter);
+						hoverlist[h].addEventListener('pointerleave', function (e) {
+							if (e.pointerType == 'touch') {
+								touchtimer = setTimeout(function () { carouselhover = false; }, 500);
+								timer = setTimeout(function () {
+									mousemove = false;
+									carousel.classList.remove('mousemove');
+								}, 3000);
+							}
+							else carouselhover = false;
+						});
+					}
+					else {
+						hoverlist[h].addEventListener('mouseenter', function () {
+							if (!hoverTouch) hoverlistEnter();
+						});
+						hoverlist[h].addEventListener('mouseleave', function () {
+							if (!hoverTouch) carouselhover = false;
+						});
+						hoverlist[h].addEventListener('touchstart', function () {
+							clearTimeout(hoverTouchTimer);
+							hoverTouch = true;
+							hoverlistEnter();
+						});
+						hoverlist[h].addEventListener('touchend', function () {
+							touchtimer = setTimeout(function () { carouselhover = false; }, 500);
+							timer = setTimeout(function () {
+								mousemove = false;
+								carousel.classList.remove('mousemove');
+							}, 3000);
+							hoverTouchTimer = setTimeout(function () { hoverTouch = false; }, 400);
+						});
+					}
+					hoverlist[h].addEventListener('focus', function () {
+						if (body.classList.contains('tabbing')) {
+							carouselhover = true;
+							clearTimeout(timer);
+							clearTimeout(touchtimer);
+							mousemove = true;
+							carousel.classList.add('mousemove');
+						}
+					});
+				}
+
+				carousel.addEventListener('touchstart', function () {
+					touch = true;
+				}, supportsPassive ? { passive: true } : false);
+				carousel.addEventListener('mousemove', function () {
+					if (!touch) carouselActive();
+					touch = false;
+				});
+				carousel.addEventListener('click', function () {
+					if (!mousemove) carouselActive();
+					else if (!carouselhover) {
+						clearTimeout(timer);
+						mousemove = false;
+						carousel.classList.remove('mousemove');
+					}
+				});
+				function carouselActive() {
+					if (carouselhover) return false;
+					mousemove = true;
+					carousel.classList.add('mousemove');
+					clearTimeout(timer);
+					timer = setTimeout(function () {
+						mousemove = false;
+						carousel.classList.remove('mousemove');
+					}, 3000);
+				}
+
+				var prevbutton = document.getElementsByClassName('flickity-prev')[0],
+					nextbutton = document.getElementsByClassName('flickity-next')[0],
+					closebutton = document.getElementsByClassName('close')[0],
+					closebuttonClicked = false,
+					checkAdjacent = false,
+					checkAdjacentTimer,
+					scrollbarAppear = body.clientHeight > window.innerHeight,
+					popState = false;
+
+				prevbutton.addEventListener('click', function () {
+					flkty.previous();
+					if (!body.classList.contains('tabbing')) carousel.focus();
+				});
+				nextbutton.addEventListener('click', function () {
+					flkty.next();
+					if (!body.classList.contains('tabbing')) carousel.focus();
+				});
+				closebutton.addEventListener('click', function () {
+					if (closebuttonClicked) return false;
+					closebuttonClicked = true;
+					html.classList.remove('carousel-open');
+					main.parentElement.style.marginRight = '';
+					clearTimeout(checkAdjacentTimer);
+					checkAdjacent = false;
+					if (scrollbarAppear) carousel.parentElement.style.right = -scrollbarWidth + 'px';
+					carousel.parentElement.classList.remove('appear');
+					carousel.parentElement.classList.remove('button-appear');
+					carousel.classList.remove('first-cell');
+					carousel.classList.remove('last-cell');
+					var elem = galleries[flkty.selectedCell.element.getAttribute('data-gallery-index')].children[flkty.selectedCell.element.getAttribute('data-image-index')],
+						img = elem.lastElementChild,
+						imgWidth = img.clientWidth,
+						imgHeight = img.clientHeight,
+						imgTop = img.getBoundingClientRect().top,
+						imgLeft = img.getBoundingClientRect().left,
+						navDrawerSpace = 0;
+					if (window.matchMedia('(min-width:768px) and (min-height:450px)').matches) {
+						navDrawerSpace = 56;
+						if (window.matchMedia('(min-width:1024px)').matches && body.classList.contains('nav-active')) navDrawerSpace = 300;
+					}
+					heroTransition(elem, imgWidth, imgHeight, imgTop, imgLeft - navDrawerSpace, true);
+					window.removeEventListener('popstate', closeCarousel);
+					if (!popState) history.back();
+					else popState = false;
+					setTimeout(function () {
+						window.addEventListener('popstate', onPopState);
+					}, 16);
+					setTimeout(function () {
+						closebuttonClicked = false;
+					}, 316);
+				});
+
+				var hero = document.getElementsByClassName('hero')[0],
+					heroX = hero.firstElementChild,
+					heroScale = heroX.firstElementChild,
+					heroImg = heroScale.firstElementChild;
+
+				main.addEventListener('click', function (e) {
+					var elem = e.target;
+					while (elem && !elem.hasAttribute('data-img-src')) {
+						elem = elem.parentElement;
+					}
+					if (!elem) return false;
+					html.classList.add('carousel-open');
+					if (scrollbarAppear) main.parentElement.style.marginRight = scrollbarWidth + 'px';
+					carousel.parentElement.style.right = '';
+					flkty.resize();
+					setTimeout(function () {
+						var img = elem.lastElementChild,
+							imgWidth = img.clientWidth,
+							imgHeight = img.clientHeight,
+							imgTop = img.getBoundingClientRect().top,
+							imgLeft = img.getBoundingClientRect().left,
+							navDrawerSpace = 0;
+						if (window.matchMedia('(min-width:768px) and (min-height:450px)').matches) {
+							navDrawerSpace = 56;
+							if (window.matchMedia('(min-width:1024px)').matches && body.classList.contains('nav-active')) navDrawerSpace = 300;
+						}
+						heroTransition(elem, imgWidth, imgHeight, imgTop, imgLeft - navDrawerSpace, false);
+						var galleryIndex = Array.prototype.slice.call(galleries).indexOf(elem.parentElement), imgIndex = Array.prototype.slice.call(galleries[galleryIndex].children).indexOf(elem);
+						carouselAppear(elem, galleryIndex, imgIndex);
+						carouselActive();
+						carousel.focus();
+					}, 16);
+				});
+
+				var imgFillWidth = false;
+
+				function insertImage(oldSrc, newSrc, imageFillWidth, galleryIndex, imgIndex) {
+					var carouselCell = document.querySelector('.carousel-cell[data-gallery-index="' + galleryIndex + '"][data-image-index="' + imgIndex + '"]'),
+						cellWrapper = carouselCell.firstElementChild;
+					if (imageFillWidth) cellWrapper.classList.add('fill-width');
+					cellWrapper.firstElementChild.src = oldSrc;
+					cellWrapper.lastElementChild.src = newSrc;
+				}
+
+				function closeCarousel() {
+					popState = true;
+					closebutton.click();
+				}
+
+				function carouselAppear(elem, galleryIndex, imgIndex) {
+					history.pushState(null, null, 'gallery');
+					window.removeEventListener('popstate', onPopState);
+					window.addEventListener('popstate', closeCarousel);
+					carousel.parentElement.classList.add('appear');
+					insertImage(elem.lastElementChild.getAttribute('src'), elem.getAttribute('data-img-src'), imgFillWidth, galleryIndex, imgIndex);
+					var indexCounter = 0;
+					for (var g = 0; g <= galleryIndex; g++) {
+						if (g != galleryIndex) {
+							indexCounter += galleries[g].children.length;
+						}
+						else {
+							indexCounter += imgIndex;
+						}
+					}
+					if (indexCounter == 0) insertAdjacentImages(indexCounter);
+					flkty.select(indexCounter, false, true);
+					if (indexCounter == 0) carousel.classList.add('first-cell');
+					else if (indexCounter == flkty.cells.length - 1) carousel.classList.add('last-cell');
+					checkAdjacentTimer = setTimeout(function () {
+						checkAdjacent = true;
+						insertAdjacentImages(indexCounter);
+					}, 316);
+				}
+
+				function insertAdjacentImages(index) {
+					if (!checkAdjacent) return false;
+					var cellNo = flkty.cells.length,
+						currentGalleryIndex = +flkty.cells[index].element.getAttribute('data-gallery-index'),
+						currentImgIndex = +flkty.cells[index].element.getAttribute('data-image-index');
+					carousel.classList.remove('first-cell');
+					carousel.classList.remove('last-cell');
+					var galleryIndex = null, imgIndex = null;
+					if (index == 0) carousel.classList.add('first-cell');
+					else {
+						var prevElem = flkty.cells[index - 1].element;
+						if (!prevElem.firstElementChild.children[1].src) {
+							galleryIndex = +prevElem.getAttribute('data-gallery-index');
+							imgIndex = +prevElem.getAttribute('data-image-index');
+						}
+					}
+					if (galleryIndex != null) {
+						var newElem = galleries[galleryIndex].children[imgIndex],
+							newImg = newElem.lastElementChild,
+							imgRatio = newImg.clientWidth / newImg.clientHeight,
+							carouselRatio = carousel.clientWidth / carousel.clientHeight;
+						insertImage(newImg.getAttribute('src'), newElem.getAttribute('data-img-src'), imgRatio > carouselRatio, galleryIndex, imgIndex);
+					}
+					galleryIndex = null;
+					imgIndex = null;
+					if (index == cellNo - 1) carousel.classList.add('last-cell');
+					else {
+						var nextElem = flkty.cells[index + 1].element;
+						if (!nextElem.firstElementChild.children[1].src) {
+							galleryIndex = +nextElem.getAttribute('data-gallery-index');
+							imgIndex = +nextElem.getAttribute('data-image-index');
+						}
+					}
+					if (galleryIndex != null) {
+						var newElem = galleries[galleryIndex].children[imgIndex],
+							newImg = newElem.lastElementChild,
+							imgRatio = newImg.clientWidth / newImg.clientHeight,
+							carouselRatio = carousel.clientWidth / carousel.clientHeight;
+						insertImage(newImg.getAttribute('src'), newElem.getAttribute('data-img-src'), imgRatio > carouselRatio, galleryIndex, imgIndex);
+					}
+				}
+
+				flkty.on('change', insertAdjacentImages);
+
+				var heroTimer;
+
+				function heroTransition(elem, imgWidth, imgHeight, imgTop, imgLeft, leave) {
+					clearTimeout(heroTimer);
+					elem.style.visibility = '';
+					hero.classList.remove('active');
+					if (!leave) navbar.classList.add('hide');
+					var src = elem.lastElementChild.getAttribute('src'),
+						height = carousel.clientHeight,
+						width = carousel.clientWidth,
+						scaleX,
+						scaleY;
+					heroImg.src = src;
+					if (imgWidth / imgHeight < width / height) {
+						imgFillWidth = false;
+						hero.style.marginTop = '0';
+						var marginLeft = (width - height * imgWidth / imgHeight) / 2;
+						hero.style.marginLeft = marginLeft + 'px';
+						hero.style.height = height + 'px';
+						var heroWidth = height * imgWidth / imgHeight;
+						hero.style.width = heroWidth + 'px';
+						heroX.style.transform = 'translateX(' + (imgLeft - (width - imgWidth) / 2) + 'px)';
+						heroScale.style.transform = 'scale(' + imgHeight / height + ')';
+						scaleX = imgHeight / height;
+						scaleY = imgHeight / height;
+						hero.classList.remove('fill-width');
+					}
+					else {
+						imgFillWidth = true;
+						var marginTop = (height - width / imgWidth * imgHeight) / 2;
+						hero.style.marginTop = marginTop + 'px';
+						hero.style.marginLeft = '0';
+						var heroHeight = width / imgWidth * imgHeight;
+						hero.style.height = heroHeight + 'px';
+						hero.style.width = width + 'px';
+						heroX.style.transform = 'translateX(' + (imgLeft - (width - imgWidth) / 2) + 'px)';
+						heroScale.style.transform = 'scale(' + imgWidth / width + ')';
+						scaleX = imgWidth / width;
+						scaleY = imgWidth / width;
+						hero.classList.add('fill-width');
+					}
+					if (elem.classList.contains('fill-width') && supportGrid) {
+						scaleY *= elem.clientHeight / imgHeight;
+						heroImg.style.transform = 'scaleY(' + (imgHeight / elem.clientHeight) + ')';
+					}
+					else {
+						scaleX *= elem.clientWidth / imgWidth;
+						heroImg.style.transform = 'scaleX(' + (imgWidth / elem.clientWidth) + ')';
+					}
+					hero.style.transform = 'translateY(' + (imgTop - (height - imgHeight) / 2) + 'px)';
+					heroX.style.transform = 'translateX(' + (imgLeft - (width - imgWidth) / 2) + 'px)';
+					heroScale.style.transform = 'scale(' + scaleX + ',' + scaleY + ')';
+					if (leave) {
+						elem.style.visibility = 'hidden';
+						hero.classList.add('active');
+						hero.classList.add('final');
+						setTimeout(function () {
+							hero.classList.remove('final');
+						}, 16);
+					}
+					else {
+						setTimeout(function () {
+							elem.style.visibility = 'hidden';
+							hero.classList.add('active');
+							hero.classList.add('final');
+						}, 16);
+					}
+					heroTimer = setTimeout(function () {
+						elem.style.visibility = '';
+						hero.classList.remove('active');
+						if (!leave) carousel.parentElement.classList.add('button-appear');
+						else navbar.classList.remove('hide');
+					}, 416);
+				}
+
+				var resizing;
+
+				function imgResize() {
+					scrollbarAppear = body.clientHeight > window.innerHeight;
+					var elems = flkty.getCellElements(), elemLength = elems.length;
+					for (var e = 0; e < elemLength; e++) {
+						var img = elems[e].firstElementChild.lastElementChild;
+						if (img) {
+							var carouselRatio = carousel.clientWidth / carousel.clientHeight,
+								imgRatio = img.clientWidth / img.clientHeight;
+							if (imgRatio > carouselRatio) img.parentElement.classList.add('fill-width');
+							else img.parentElement.classList.remove('fill-width');
+						}
+					}
+				}
+
+				function imgResizeRaf() {
+					imgResize();
+					if (resizing) requestAnimationFrame(imgResizeRaf);
+				}
+
+				function imgResizeTimeout() {
+					resizing = true;
+					requestAnimationFrame(imgResizeRaf);
+					setTimeout(function () {
+						resizing = false;
+						imgResize();
+					}, 320);
+				}
+
+				window.addEventListener('resize', imgResize);
+				document.getElementsByClassName('menu')[0].addEventListener('click', imgResizeTimeout);
+
+				Ajax.removeListener = function () {
+					var wrapperCarousel = body.getElementsByClassName('carousel-wrapper')[0],
+						wrapperHero = body.getElementsByClassName('hero-wrapper')[0];
+					body.removeChild(wrapperHero);
+					wrapperCarousel.classList.remove('appear');
+					setTimeout(function () {
+						body.removeChild(wrapperCarousel);
+					}, 300);
+					flkty.off('select', carouselActive);
+					flkty.off('change', insertAdjacentImages);
+					html.classList.remove('carousel-open');
+					main.parentElement.style.marginRight = '';
+					window.removeEventListener('resize', imgResize);
+					window.removeEventListener('popstate', closeCarousel);
+					window.addEventListener('popstate', onPopState);
+					document.getElementsByClassName('menu')[0].removeEventListener('click', imgResizeTimeout);
+					flkty = null;
+					clearTimeout(timer);
+					mousemove = true;
+				};
+			}
+			else setTimeout(customJS, 100);
+		}
+		customJS();
+	</script>
+</body>
+
+</html>

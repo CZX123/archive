@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#000">
+	<meta name="description" content="Our yearly publications with all past HCINPCC events.">
+	<title>Annual Chronicles • HCINPCC Unit Website</title>
+	<link rel="preload" href="fonts/roboto-subset.woff2" as="font" type="font/woff2" crossorigin>
+	<script>'use strict'; document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('DOMloaded'); document.body.classList.add('no-transition'); setTimeout(function () { document.body.classList.remove('no-transition'); }, 300); if (window.matchMedia('(min-width:1024px) and (min-height:450px)').matches) document.body.classList.add('nav-active'); }); if ('serviceWorker' in navigator) if (navigator.serviceWorker.controller) document.documentElement.className = 'subset-font-loaded all-fonts-loaded'</script>
+	<link rel="icon" href="images/hci.png">
+	<link rel="shortcut icon" href="images/hci.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="font.css">
+	<script src="font.js" async></script>
+	<script src="script.min.js" defer></script>
+	<script src="flickity.pkgd.min.js" defer></script>
+
+	<style class="ajax-style">
+		.grid a .ripple.appear {
+			transition: transform .6s cubic-bezier(.4, 0, .2, 1), opacity .3s;
+		}
+
+		.grid a .ripple.finish.fade-out {
+			transition: transform .6s cubic-bezier(.4, 0, .2, 1), opacity .5s;
+		}
+
+		@media (max-width:400px) {
+			section.main .grid {
+				justify-content: center;
+			}
+			section * {
+				text-align: center;
+			}
+			section.main .grid>a {
+				max-width: 240px;
+			}
+		}
+
+		@media (min-width:401px) and (-ms-high-contrast: none),
+		(-ms-high-contrast: active) {
+			section.main .grid {
+				justify-content: flex-start;
+			}
+			section.main h1 {
+				text-align: left;
+			}
+			section.main .grid>a {
+				max-width: none;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="progress">
+		<div>
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="navbar">
+		<button class="menu" aria-label="Menu">
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+				</svg>
+			</div>
+		</button>
+		<picture>
+			<source srcset="images/hcinpcc-75x40.png, images/hcinpcc-150x80.png 2x, images/hcinpcc-225x120.png 3x, images/hcinpcc-300x160.png 4x">
+			<img class="fade" src="images/hcinpcc-150x80.png" alt="HCINPCC Logo">
+		</picture>
+	</div>
+	<div class="nav-gradient"></div>
+	<div class="nav-drawer">
+		<div class="scrollbar-animate">
+			<div class="wrapper">
+				<ul>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+						</svg>
+						<a href="./">Home</a>
+					</li>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+							/>
+						</svg>
+						<a href="gallery">Gallery</a>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>About HCINPCC</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="info">NPCC Information</a>
+							</li>
+							<li>
+								<a href="roh">Roll of Honour</a>
+							</li>
+							<li>
+								<a href="officers">Officers</a>
+							</li>
+							<li>
+								<a href="exco">Unit Hierarchy</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown dropdown-open active">
+						<button>
+							<div>Publications</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="https://hcinpcc.wordpress.com" target="_blank">Articles</a>
+								<div class="external">
+									<svg viewBox="0 0 24 24">
+										<path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+										/>
+									</svg>
+								</div>
+							</li>
+							<li class="active">
+								<a href="ac">Annual Chronicles</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Help</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="links">Useful Links</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="social-media">
+					<li>
+						<a href="https://www.instagram.com/hcinpcc/" target="_blank">Follow Us On Instagram</a>
+						<img src="images/instagram-black.svg">
+						<img src="images/instagram-color.svg">
+					</li>
+					<li class="pwa-install">
+						<button>
+							<div>Install App</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+						</svg>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="scrim"></div>
+	<div class="drag-nav-drawer"></div>
+	<div class="nav-links-tooltip">
+		<div class="wrapper">
+			<span>Home</span>
+			<span></span>
+		</div>
+	</div>
+
+	<div class="ajax-content">
+		<section class="title">
+			<h1>Annual Chronicles</h1>
+		</section>
+		<section class="main">
+			<div class="grid">
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1-bUANkCDon0EPpiDdm7RfMj_m8CZ5_Fs">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2018.webp">
+						<img class="fade" src="page-resources/ac/AC2018.png">
+					</picture>
+					<div class="desc">2018</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=10qaeMBJhyHJ1XDABJzRqtjseHrLLQTM4">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2017.webp">
+						<img class="fade" src="page-resources/ac/AC2017.png">
+					</picture>
+					<div class="desc">2017</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1SAJJFW0A1V9w-JTosJDhfDBem3i3tJso">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2016.webp">
+						<img class="fade" src="page-resources/ac/AC2016.png">
+					</picture>
+					<div class="desc">2016</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1-BPDuZhWimHa_ZUSzgE_7vloHDtzmrPF">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2014.webp">
+						<img class="fade" src="page-resources/ac/AC2014.png">
+					</picture>
+					<div class="desc">2014</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1JbETv9qz2tWFOgL38XBVZqsKqdD1jTSQ">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2013.webp">
+						<img class="fade" src="page-resources/ac/AC2013.png">
+					</picture>
+					<div class="desc">2013</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=18waJTFnWPKhidVEYf8s6jMrV0I-z-CqF">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2012.webp">
+						<img class="fade" src="page-resources/ac/AC2012.png">
+					</picture>
+					<div class="desc">2012</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1yAWwtwNxePrOFtl3iOM0HG97ZgIfWli7">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2010.webp">
+						<img class="fade" src="page-resources/ac/AC2010.png">
+					</picture>
+					<div class="desc">2010</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1w5OWtWW0ScJuW6cQhJHG4D6fC9sqMoLg">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2009.webp">
+						<img class="fade" src="page-resources/ac/AC2009.png">
+					</picture>
+					<div class="desc">2009</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=16u7sj19usWF7e3XRHyjFyViJrVYLYvqg">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2008.webp">
+						<img class="fade" src="page-resources/ac/AC2008.png">
+					</picture>
+					<div class="desc">2008</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1V3YhDhaKvsQIA_kV6R2Bjt0-i8v36JYr">
+					<picture>
+						<source type="image/webp" srcset="page-resources/ac/AC2007.webp">
+						<img class="fade" src="page-resources/ac/AC2007.png">
+					</picture>
+					<div class="desc">2007</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1uhJvxx4jFJCYhVgOtKmlwJLbAEpQvR6q">
+					<picture>
+						<source type="image/webp" srcset="images/placeholder.webp">
+						<img class="fade" src="images/placeholder.png">
+					</picture>
+					<div class="desc">2007 Newsletter</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1e-dpHyGLQ3Daahy2gqg_LS-c0NoP7s_v">
+					<picture>
+						<source type="image/webp" srcset="images/placeholder.webp">
+						<img class="fade" src="images/placeholder.png">
+					</picture>
+					<div class="desc">2006</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1bRgEC2LhS_aHkYklLqzRwygmfwdeUopG">
+					<picture>
+						<source type="image/webp" srcset="images/placeholder.webp">
+						<img class="fade" src="images/placeholder.png">
+					</picture>
+					<div class="desc">2005 (Semester 2)</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1863A9w_JuzXS6wYzMaBXbLjuaLEFjQLR">
+					<picture>
+						<source type="image/webp" srcset="images/placeholder.webp">
+						<img class="fade" src="images/placeholder.png">
+					</picture>
+					<div class="desc">2005 (Semester 1)</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1AyqrwJ0v2VsgeRazndNpkQ1zrxMJ84TF">
+					<picture>
+						<source type="image/webp" srcset="images/placeholder.webp">
+						<img class="fade" src="images/placeholder.png">
+					</picture>
+					<div class="desc">2004 (Term 4)</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1wG3s619FJq48ArmvChdUW9pnRex7jPJ_">
+					<picture>
+						<source type="image/webp" srcset="images/placeholder.webp">
+						<img class="fade" src="images/placeholder.png">
+					</picture>
+					<div class="desc">2004 (Term 2 &amp; 3)</div>
+				</a>
+				<a class="button" target="_blank" href="https://drive.google.com/open?id=1JM1Fu9NESZK9fzf9PRn3v9Qvr4QmiwNf">
+					<picture>
+						<source type="image/webp" srcset="images/placeholder.webp">
+						<img class="fade" src="images/placeholder.png">
+					</picture>
+					<div class="desc">2004 (Term 1)</div>
+				</a>
+			</div>
+		</section>
+		<section class="footer">
+			<footer>
+				© 2020
+				<span>Hwa Chong Institution National Police Cadet Corps</span>
+				<span>HCINPCC</span>
+			</footer>
+		</section>
+	</div>
+
+	<div class="error">An error occured. Please try again later.</div>
+	<script class="ajax-script">
+			(function () {
+				var thumbnails = document.getElementsByClassName('main')[0].getElementsByTagName('img'), tLength = thumbnails.length, t;
+				for (t = 0; t < tLength; t++) {
+					thumbnails[t].alt = 'Annual Chronicles ' + thumbnails[t].parentElement.nextElementSibling.innerText + ' Thumbnail';
+				}
+			})();
+		function customJS() {
+			if (typeof (Ajax) !== 'undefined') {
+				Ajax.script = document.getElementsByClassName('ajax-script')[0];
+				Ajax.removeListener = function () { };
+			}
+			else setTimeout(customJS, 100);
+		}
+		customJS();
+	</script>
+</body>
+
+</html>

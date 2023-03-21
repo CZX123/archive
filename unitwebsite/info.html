@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#000">
+	<meta name="description" content="View the NPCC mission, vision, pledge, song, and our rich history.">
+	<title>NPCC Information • HCINPCC Unit Website</title>
+	<link rel="preload" href="fonts/roboto-subset.woff2" as="font" type="font/woff2" crossorigin>
+	<script>'use strict'; document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('DOMloaded'); document.body.classList.add('no-transition'); setTimeout(function () { document.body.classList.remove('no-transition'); }, 300); if (window.matchMedia('(min-width:1024px) and (min-height:450px)').matches) document.body.classList.add('nav-active'); }); if ('serviceWorker' in navigator) if (navigator.serviceWorker.controller) document.documentElement.className = 'subset-font-loaded all-fonts-loaded'</script>
+	<link rel="icon" href="images/hci.png">
+	<link rel="shortcut icon" href="images/hci.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="style.min.css">
+	<link rel="stylesheet" href="font.css">
+	<script src="font.js" async></script>
+	<script src="script.min.js" defer></script>
+	<script src="flickity.pkgd.min.js" defer></script>
+
+	<style class="ajax-style">
+		b {
+			display: block;
+			font-weight: 500;
+		}
+
+		section.main p {
+			line-height: 1.8;
+		}
+
+		.carousel-wrapper {
+			position: relative;
+			margin: 0 0 20px;
+		}
+
+		.carousel-wrapper,
+		.flickity-slider {
+			overflow: visible;
+		}
+
+		.carousel {
+			min-height: 500px;
+			border-radius: 12px;
+			transition: box-shadow .2s;
+		}
+
+		.tabbing .carousel:focus {
+			box-shadow: 0 0 24px rgba(0, 0, 0, .4);
+		}
+
+		.carousel .carousel-cell {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 100%;
+		}
+
+		.carousel .carousel-image {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			height: 100%;
+			width: 100%;
+			margin: 0 12px;
+			border-radius: 12px;
+			background-color: #CCC !important;
+			background-size: cover !important;
+			opacity: 0;
+			transition: opacity .4s;
+		}
+
+		.carousel .carousel-image.is-selected {
+			opacity: 1;
+		}
+
+		.carousel .image1 {
+			background: url(history/1959.jpg) center no-repeat;
+		}
+
+		.carousel .image2 {
+			background: url(history/1969.jpg) center no-repeat;
+		}
+
+		.carousel .image3 {
+			background: url(history/1979.jpg) center no-repeat;
+		}
+
+		.carousel .image4 {
+			background: url(history/1989.jpg) center no-repeat;
+		}
+
+		.carousel .image5 {
+			background: url(history/1999.jpg) center no-repeat;
+		}
+
+		.carousel .carousel-cell * {
+			margin: 0;
+			text-align: center;
+		}
+
+		.carousel .carousel-image * {
+			margin: 0;
+			background: rgba(0, 0, 0, .4);
+			color: #FFF;
+			text-align: center;
+		}
+
+		.carousel .carousel-cell h3,
+		.carousel .carousel-image h3 {
+			font-family: 'Renner*', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+			padding: 20px 16px 8px;
+			font-size: 20px;
+			font-weight: 500;
+		}
+
+		.carousel .carousel-cell p,
+		.carousel .carousel-image p {
+			min-width: 200px;
+			padding: 0 32px;
+			font-size: 16px;
+			line-height: 28px;
+			text-align: justify;
+			text-align-last: center;
+			white-space: nowrap;
+		}
+
+		.carousel .carousel-image p {
+			padding: 0 16px 68px;
+			white-space: normal;
+		}
+
+		.carousel .carousel-cell .year,
+		.carousel .carousel-image .year {
+			padding: 10px 16px 20px;
+			font-size: 20px;
+			font-weight: 500;
+		}
+
+		.years {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			white-space: nowrap;
+		}
+
+		.years .wrapper {
+			display: flex;
+			align-items: baseline;
+			padding: 12px;
+			overflow: visible;
+			transition: transform .5s cubic-bezier(.4, 0, .2, 1);
+		}
+
+		.main .years button {
+			flex-shrink: 0;
+			background: transparent;
+			box-shadow: none !important;
+			transition: background .2s;
+		}
+
+		.main .years button.hover,
+		.main .years button:active,
+		.tabbing .main .years button:focus {
+			background: rgba(0, 0, 0, .1);
+		}
+
+		.main .years button>div {
+			padding: 4px 8px;
+			color: rgba(0, 0, 0, .54);
+			font-size: 18px;
+			transition: all .36s;
+		}
+
+		.main .years button.active>div {
+			color: rgba(0, 0, 0, .87);
+			font-size: 20px;
+			font-weight: 500;
+		}
+
+		.main .years.image-selected button.hover,
+		.main .years.image-selected button:active,
+		.tabbing .main .years.image-selected button:focus {
+			background: rgba(255, 255, 255, .16);
+		}
+
+		.main .years.image-selected button .ripple {
+			background: rgba(255, 255, 255, .22);
+		}
+
+		.main .years.image-selected button>div {
+			color: rgba(255, 255, 255, .54);
+		}
+
+		.main .years.image-selected button.active>div {
+			color: #FFF;
+		}
+
+		section.main .flickity-custom-button {
+			position: absolute;
+			height: 48px;
+			width: 48px;
+			top: 50%;
+			outline: 0;
+			border-radius: 50% !important;
+			padding: 0;
+			transform: translateY(-50%) scale(1);
+			visibility: visible;
+			transition: all .3s cubic-bezier(0, 0, .2, 1), transform .2s, box-shadow .2s;
+		}
+
+		section.main .first-cell~.flickity-prev,
+		section.main .last-cell~.flickity-next {
+			transform: translateY(-50%) scale(0);
+			pointer-events: none;
+			visibility: hidden;
+			transition: all .3s cubic-bezier(0, 0, .2, 1), visibility 0s .3s, transform .2s, box-shadow .2s;
+		}
+
+		.flickity-custom-button.flickity-prev {
+			left: -24px;
+		}
+
+		.flickity-custom-button.flickity-next {
+			right: -24px;
+		}
+
+		.flickity-custom-button>div {
+			padding: 10px;
+		}
+
+		.flickity-custom-button svg {
+			height: 28px;
+			width: 28px;
+			fill: rgba(0, 0, 0, .54);
+		}
+
+		@media (max-width: 450px) {
+			.carousel-wrapper {
+				margin: 0 -16px 20px;
+			}
+			.carousel {
+				border-radius: 0;
+			}
+			.carousel .carousel-cell,
+			.carousel .carousel-image {
+				border-radius: 0;
+				margin-right: 0;
+			}
+			.flickity-custom-button.flickity-prev {
+				left: 12px;
+			}
+			.flickity-custom-button.flickity-next {
+				right: 12px;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="progress">
+		<div>
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="navbar">
+		<button class="menu" aria-label="Menu">
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+				</svg>
+			</div>
+		</button>
+		<picture>
+			<source srcset="images/hcinpcc-75x40.png, images/hcinpcc-150x80.png 2x, images/hcinpcc-225x120.png 3x, images/hcinpcc-300x160.png 4x">
+			<img class="fade" src="images/hcinpcc-150x80.png" alt="HCINPCC Logo">
+		</picture>
+	</div>
+	<div class="nav-gradient"></div>
+	<div class="nav-drawer">
+		<div class="scrollbar-animate">
+			<div class="wrapper">
+				<ul>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+						</svg>
+						<a href="./">Home</a>
+					</li>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+							/>
+						</svg>
+						<a href="gallery">Gallery</a>
+					</li>
+					<li class="dropdown dropdown-open active">
+						<button>
+							<div>About HCINPCC</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li class="active">
+								<a href="info">NPCC Information</a>
+							</li>
+							<li>
+								<a href="roh">Roll of Honour</a>
+							</li>
+							<li>
+								<a href="officers">Officers</a>
+							</li>
+							<li>
+								<a href="exco">Unit Hierarchy</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Publications</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="https://hcinpcc.wordpress.com" target="_blank">Articles</a>
+								<div class="external">
+									<svg viewBox="0 0 24 24">
+										<path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+										/>
+									</svg>
+								</div>
+							</li>
+							<li>
+								<a href="ac">Annual Chronicles</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Help</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="links">Useful Links</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="social-media">
+					<li>
+						<a href="https://www.instagram.com/hcinpcc/" target="_blank">Follow Us On Instagram</a>
+						<img src="images/instagram-black.svg">
+						<img src="images/instagram-color.svg">
+					</li>
+					<li class="pwa-install">
+						<button>
+							<div>Install App</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+						</svg>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="scrim"></div>
+	<div class="drag-nav-drawer"></div>
+	<div class="nav-links-tooltip">
+		<div class="wrapper">
+			<span>Home</span>
+			<span></span>
+		</div>
+	</div>
+
+	<div class="ajax-content">
+		<section class="title">
+			<h1>About NPCC</h1>
+		</section>
+		<section class="main">
+			<h1>Our Mission</h1>
+			<p>To develop our members to be active citizens and community leaders,
+				<br>by working in partnership with Singapore Police Force to fight crime and keep Singapore safe.</p>
+			<h1>Our Vision</h1>
+			<p>To become the best youth organisation in Singapore,
+				<br>one that actively helps to make Singapore the safest place in the world.</p>
+			<h1>NPCC Pledge</h1>
+			<p>We, the members of the National Police Cadet Corps, do here and now solemnly and sincerely pledge that: </p>
+			<p>We will always bear true faith and allegiance to the President and our Republic of Singapore. </p>
+			<p>We will always be loyal and true to our country, our people and the government. </p>
+			<p>We will always be prepared to serve our country and the community. </p>
+			<p>We will always preserve the peace and uphold the law.</p>
+			<h1>NPCC Song - NPCC March</h1>
+			<p>We will be faithful and always steadfast
+				<br>Loyalty and service that's our aim
+				<br>To serve with pride, ever looking forward
+				<br>Marching onward all the time</p>
+			<p>Between all races, there is no barrier
+				<br>In NPCC we all join hands
+				<br>To stand by Singapore in her endeavours
+				<br>Serving our land all the time</p>
+			<p>
+				<b>Chorus</b>NPCC! Let's join hands
+				<br>Uphold the law preserve the peace
+				<br>NPCC! Let's join hands
+				<br>Marching onward all the time
+				<b>Chorus (×2)</b>
+			</p>
+			<h1>NPCC History</h1>
+			<div class="carousel-wrapper">
+				<div class="carousel">
+					<div class="carousel-image image1">
+						<h3>A Unified Image</h3>
+						<p>During this explosive period of Singapore's history, our society was fraught with problems of law and order. There
+							was high tension and mounting hatred between the community and the Police Force. Youths were the main targets as riots
+							and unlawful activities slowly took a stronghold of our society. Actions needed to be taken immediately to rout potential
+							safety and security threats that were impacting the community.</p>
+					</div>
+					<div class="carousel-cell">
+						<p>Police Cadet Corps (PCC) was set up with the aim to break the barrier between the people and the Police Force and to
+							instill a greater sense of discipline in youth and a sense of civic responsibility in them, thereby developing their
+							moral character. The first PCC unit started only with 30 cadets and a single teacher officer - Mr. Victor Seah.</p>
+						<div class="year">1959</div>
+					</div>
+					<div class="carousel-cell">
+						<p>This successful initiative inspired the formation of more units in schools around Singapore. 30 teachers were selected
+							from different schools to be trained as PCC officers at the Police Training School (PTS). This year also marked the
+							enactment of the Police Cadet Corps Ordinance in Parliament.</p>
+						<div class="year">1961</div>
+					</div>
+					<div class="carousel-cell">
+						<p>As time passed, the movement started to gain recognition as a credible uniform youth organisation. The Corps was invited
+							to participate in the 1963 State Day Parade.</p>
+						<div class="year">1963</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Formation of the first girl units in Raffles Girls' Secondary School and Sang Nila Utama Malay Secondary School took
+							place. As PCC expanded, interesting programmes such as drill competitions, revolver shoots and visits to Police Stations
+							and other police establishments were introduced to inject interest, boost quality and broaden experience of cadets.
+							PCC also began to support the Police in the fight against crime and prepare youths for National Service (NS).</p>
+						<div class="year">1964</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The first PCC Annual Parade was held and has since become a tradition from then on.</p>
+						<div class="year">1966</div>
+					</div>
+					<div class="carousel-cell">
+						<p>PCC broke away from the command of Volunteer Special Constabulary (VSC) and became a fully independent unit. PCC then
+							moved into its own Headquarters at Building No.4 at the PTS. The first independent PCC Commandant then was DSP Niaz
+							Mohd Shah who played an important role in the strengthening of the foundation of the Corps and its expansion.</p>
+						<div class="year">1967</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The concept of allowing units to design their formation sign was introduced. It enabled units to develop its own unique
+							identity and instill a greater sense of pride and a sense of belonging among cadets.</p>
+						<div class="year">1968</div>
+					</div>
+					<div class="carousel-image image2">
+						<h3>Marching Forward</h3>
+						<p>The beginning of 1969 saw the arm, sea, air and police cadet movements coming under a common structure with Police
+							taking on the title of National Cadet Corps (Police). It was a decade of expansion as the Corps grew at an extraordinary
+							pace.</p>
+					</div>
+					<div class="carousel-cell">
+						<p>The demand for qualified teachers to train the growing number of cadets increased at an alarming rate and this eventually
+							brought about the establishment of the Cadet Inspectors' (CIs) Unit, serving to develop young cadet leaders as potential
+							future leaders of our nation. A CI is the highest rank attainable by an NPCC Cadet.</p>
+						<div class="year">1970</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The Corps was officially renamed the National Police Cadet Corps (NPCC). In the same year, NPCC Band made up of boys
+							from various different secondary schools and vocational institutes was formed. They performed at NPCC functions such
+							as Annual Parade and Service Day.</p>
+						<div class="year">1971</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC also took on a new look when the NPCC uniform was changed from dark grey and khaki to blue, to match the uniform
+							of the Singapore Police Force (SPF). However, to differentiate between the two, NPCC subsequently changed to a yellow
+							lanyard and wore NPCC badges on their shirt collars. It was replaced again by the chain and whistle, in line with
+							the regular police.</p>
+						<div class="year">1972</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The first Overseas tour was introduced with the aim to broaden the cadets' mental outlook and portray the image of
+							Singapore's NPCC.</p>
+						<div class="year">1973</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The inaugural issue of the NPCC magazine, titled "The Police Cadet" was produced. The magazine aimed to keep cadets
+							informed of the developments and achievements in the Corps. It also aimed to serve as a platform for exchange of ideas
+							and information across units.</p>
+						<div class="year">1974</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The NPCC Council was inaugurated. The Council was represented by personnel from the Ministry of Education and officers
+							from the SPF, who would be responsible for policy development and overseeing the development of NPCC. With the formation
+							of the NPCC Council gave the Corps greater sense of direction and purpose for the movement in the years ahead.</p>
+						<div class="year">1975</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The introduction of swimming and kayaking as part of the NPCC activities, life-saving course was added to the training
+							regime to enable students to perform lifeguard duties during camp.</p>
+						<div class="year">1975</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Community Involvement was launched in full scale with the objective to imbue in cadets an awareness of their citizen
+							responsibility towards the welfare and security of our nation.</p>
+						<div class="year">1978</div>
+					</div>
+					<div class="carousel-image image3">
+						<h3>Together, Standing Strong</h3>
+						<p>In this decade, NPCC continued to spread its wings and attained a stronger identity and sense of belonging.</p>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC marked its 20th Anniversary with a Cultural Night at the National Theatre. That year also saw the introduction
+							of Service Medals to recognise officers for their dedication and service to the Corps.</p>
+						<div class="year">1979</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Proficiency badges were introduced. It aimed at instilling in cadets the desire to do well, to show recognition for
+							their achievements, to encourage them to participate in healthy activities and sustain interest in the Corps.</p>
+						<div class="year">1981</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The Best Unit Cadet award was also introduced in the same year.</p>
+						<div class="year">1981</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The NPCC Unit in the National University of Singapore was officially established following the idea mooted by Council
+							Chairman Dr Lawrence Chia in 1981.</p>
+						<div class="year">1982</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The Crime Prevention Proficiency Badge was introduced with the aim to enchance awareness of crime prevention and to
+							translate that knowledge into application and skills.</p>
+						<div class="year">1982</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The introduction of the NPCC Pledge and March took place. Both the NPCC Pledge and the NPCC March speaks the loyalty
+							and dedication to the nation and the Corps. The Corps had forged a more distinct identity by then.</p>
+						<div class="year">1983 - 1984</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC marked its NPCC Day in May. The first NPCC Day Observance Ceremony was officiated by Mr. Wong Kan Seng, then Minister
+							of State for Home Affairs.</p>
+						<div class="year">1984</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The first Campcraft Competition was held with the aim to promote team spirit, upgrade campcraft skills, raise efficiency
+							in conducting outdoor activities and nurture a stronger competitive inclination.</p>
+						<div class="year">1985</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Kampong Bahru at Pulau Ubin was officially opened. The campsite provided an ideal location to conduct in-service training
+							and team-building activities.</p>
+						<div class="year">1987</div>
+					</div>
+					<div class="carousel-cell">
+						<p>A complete review of the NPCC Training Curriculum was conducted. The Training Resource And Coursework Kits (TRACKS)
+							comprised lesson notes and supporting visual material.</p>
+						<div class="year">1987</div>
+					</div>
+					<div class="carousel-cell">
+						<p>A computer database was set up to improve the administration of NPCC. The School Unit Management System (SUMS) was
+							implemented in 1988 to enable quick compilation of unit returns, enrolments, attendees etc.</p>
+						<div class="year">1988</div>
+					</div>
+					<div class="carousel-image image4">
+						<h3>Mission Possible</h3>
+						<p>NPCC is constantly keeping pace with the ever-changing world and remained forward looking and true to its founding
+							values. As NPCC moved into this decade, it continued to introduce new initiatives and creating more opportunities
+							for youth development.</p>
+					</div>
+					<div class="carousel-cell">
+						<p>The first National Camp for the various Uniform Groups in Singapore was held at Sarimbun Scout Camp.</p>
+						<div class="year">1990</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Then Deputy Prime Minister Mr. Goh Chok Tong was invited to visit the NPCC then temporary campsite to appreciate the
+							urgency and requirements for a suitably designed and well-equipped site to be developed to meet the standards of the
+							rigorous NPCC training programmes. Effort paid off when a piece of land, where the present campsite is situated, was
+							acquired from the Urban Redevelopment Authority.</p>
+						<div class="year">1990</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The birth of the NTU-NPCC Unit took place. Founding members launched a recruitment campaign for new blood, and started
+							preparations for a training course to train new cadets.</p>
+						<div class="year">1991</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC was given the honour of organising the second National Camp held at the same camp.</p>
+						<div class="year">1992</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Blood Donation Drive was carried out to encourage donation of blood to the National Blood Bank.</p>
+						<div class="year">1992</div>
+					</div>
+					<div class="carousel-cell">
+						<p>In the continual effort to raise the standard of proficiency in all units, the Unit Efficiency Award was reviewed and
+							the Unit Overall Proficiency Award (UOPA) was introduced.</p>
+						<div class="year">1994</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Tenacity and consistency are necessary when forging a distinct identity and culture of NPCC. The mission and vision
+							of the Corps were crafted and adopted by all members of the Corps.</p>
+						<div class="year">1996</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The first work plan seminar was held to provide a platform for officers to be involved in charting NPCC's course for
+							the following year, to understand the rationale and activities of the Corps and to implement Vision and Mission of
+							the Corps.</p>
+						<div class="year">1997</div>
+					</div>
+					<div class="carousel-cell">
+						<p>In the same year, the SPF-NPCC badge was launched. It is the most prestigious award that can be awarded to a Secondary
+							School Cadet.</p>
+						<div class="year">1997</div>
+					</div>
+					<div class="carousel-image image5">
+						<h3>Timeless Passion, Enduring Spirit</h3>
+						<p>National Police Cadet Corps had endured many challenges and grown and matured with the nation. NPCC activities have
+							always been able to complement classroom lessons with life-skills that help students adapt and thrive in a rapidly
+							changing environment. Programmes were reviewed and improved to hone leadership skills, increase mental capabilities,
+							build physical resilience and to teach them to respect our environment and serve the community.</p>
+					</div>
+					<div class="carousel-cell">
+						<p>Marked 40 years of NPCC history. A 40th anniversary logo was launched together with the Inauguration Ceremony of the
+							10th NPCC Council.</p>
+						<div class="year">1999</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC History Book was launched. The book aims to inspire NPCC members, cadets, officers as well as potential cadets
+							who would like to become part of the Corps as it showed the growth and development of the Corps in its first 40 years
+							of being.</p>
+						<div class="year">2000</div>
+					</div>
+					<div class="carousel-cell">
+						<p>Registered in 1999 and formed in 2000, the NPCC Alumni was launched to provide an avenue for ex-members to stay connected
+							to NPCC.</p>
+						<div class="year">2000</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The first two sea units were inaugurated in conjunction with the Police Coast Guard Loyang Regional Base in January
+							2003. The formation of the sea unit allows cadets to develop a love for sea-based activities, to understand the importance
+							of maritime services in national defence and hopefully to provide them with the option in maritime industry.</p>
+						<div class="year">2003</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC developed its own website in the hope of being an effective channel for corporate communications and a portal
+							to provide useful information for members and non-members alike.</p>
+						<div class="year">2003</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC had its first overseas service learning project to Yunnan, China. This trip had broadened everyone's horizons
+							and provided them with opportunities to learn and appreciate different cultures and environments.</p>
+						<div class="year">2004</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The official opening of Camp Resilience - covering 25 hectares of land and comprising two main camps - Kampong Bahru
+							and Kampong Nordin.</p>
+						<div class="year">2004</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The new NPCC Training Framework - "New Training Framework for 2006 and Beyond, A Great Leap Forward, A New NPCC" was
+							approved by the Council and was undertaken during 2006.</p>
+						<div class="year">2005</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC carried out a review of its volunteer management structure and redefined its Route of Advancement (ROA) to provide
+							ample opportunities to progress within or across the different schemes of service.</p>
+						<div class="year">2006</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC HQ shifted out of the Thomson Road Police Academy premises along with the SPF Training Command to the Home Team
+							Academy in January 2006.</p>
+						<div class="year">2006</div>
+					</div>
+					<div class="carousel-cell">
+						<p>NPCC collaborated with the Community Involvement Division of SPF and National Crime Prevention Council to launch the
+							Community Safety and Security (CSS) Programme and the Police Youth Ambassador (PYA) Programme.</p>
+						<div class="year">2007</div>
+					</div>
+					<div class="carousel-cell">
+						<p>The adoption of the Y-TWO Band from Yishun Town Secondary School. The band's affiliation with NPCC underscores the
+							close affiliation between YTSS NPCC Unit and the school's Youth Wing Band. Cadets from the YTWO-NPCC Band are given
+							a unique training programme that incorporates elements from the NPCC Training Programme.</p>
+						<div class="year">2007</div>
+					</div>
+					<div class="carousel-cell">
+						<p>A brand new design of NPCC Proficiency Badges was presented. These new designs display smaller-sized and more vibrant-coloured
+							badges to add on to the cadets' collection of badges.</p>
+						<div class="year">2008</div>
+					</div>
+					<div class="carousel-cell">
+						<p>We see unknowns and many challenges ahead. However, with passion, resilience and determination, NPCC will continue
+							to grow in strength and impact the lives of our future generation and playing a vital role in the safety and security
+							of our nation, our home!</p>
+						<div class="year">2009</div>
+					</div>
+				</div>
+				<button class="flickity-custom-button flickity-prev" aria-label="Previous Slide">
+					<div>
+						<svg viewBox="0 0 24 24">
+							<path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+						</svg>
+					</div>
+				</button>
+				<button class="flickity-custom-button flickity-next" aria-label="Next Slide">
+					<div>
+						<svg viewBox="0 0 24 24">
+							<path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+						</svg>
+					</div>
+				</button>
+				<div class="years">
+					<div class="wrapper">
+						<button data-select=".image1" class="active">
+							<div>1959 - 1968</div>
+						</button>
+						<button data-select=".image2">
+							<div>1969 - 1978</div>
+						</button>
+						<button data-select=".image3">
+							<div>1979 - 1988</div>
+						</button>
+						<button data-select=".image4">
+							<div>1989 - 1998</div>
+						</button>
+						<button data-select=".image5">
+							<div>1999 - Present</div>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="footer">
+			<footer>
+				© 2020
+				<span>Hwa Chong Institution National Police Cadet Corps</span>
+				<span>HCINPCC</span>
+			</footer>
+		</section>
+	</div>
+
+	<div class="error">An error occured. Please try again later.</div>
+	<script class="ajax-script">
+		var flkty;
+		(function () {
+			var head = document.head, head0 = head.firstElementChild;
+			if (head0.getAttribute('href') != 'flickity.min.css') {
+				var l = document.createElement('link');
+				l.rel = 'stylesheet';
+				l.href = 'flickity.min.css';
+				head.insertBefore(l, head0);
+			}
+		})();
+		function customJS() {
+			if (typeof (Ajax) !== 'undefined' && typeof (Flickity) !== 'undefined') {
+				Ajax.script = document.getElementsByClassName('ajax-script')[0];
+
+				var carousel = document.getElementsByClassName('carousel')[0],
+					years = document.getElementsByClassName('years')[0],
+					yearsbuttons = document.querySelectorAll('.years button'),
+					y;
+
+				flkty = new Flickity(carousel, {
+					prevNextButtons: false,
+					pageDots: false,
+					setGallerySize: false,
+					dragThreshold: 10,
+					percentPosition: false
+				});
+
+				var p = document.querySelectorAll('.carousel-cell p'), maxpwidth = 0, linenumber;
+
+				paragraphHeight();
+				carousel.style.height = carousel.offsetWidth / 4 * 3 + 'px';
+				window.addEventListener('resize', carouselHeight);
+				function carouselHeight() {
+					carousel.style.height = carousel.offsetWidth / 4 * 3 + 'px';
+					paragraphHeight();
+				}
+
+				function paragraphHeight() {
+					for (var i = 0; i < p.length; i++) {
+						p[i].removeAttribute('style');
+						if (p[i].offsetWidth > maxpwidth) maxpwidth = p[i].offsetWidth - 64;
+					}
+					linenumber = Math.floor(maxpwidth / (carousel.offsetWidth - 72)) + 1;
+					for (var i = 0; i < p.length; i++) {
+						var pwidth = p[i].offsetWidth - 64;
+						p[i].style.width = (pwidth / linenumber + 96) + 'px';
+						p[i].style.whiteSpace = 'normal';
+						flkty.resize();
+						maxpwidth = 0;
+					}
+				}
+
+				for (y = 0; y < yearsbuttons.length; y++) {
+					yearsbuttons[y].addEventListener('click', function () {
+						var selectedcell = this.getAttribute('data-select');
+						flkty.selectCell(selectedcell);
+					});
+				}
+
+				flkty.on('select', checkCell);
+				checkCell();
+				function checkCell() {
+					var activecell = flkty.selectedElement;
+					if (!activecell.previousElementSibling) {
+						carousel.classList.add('first-cell');
+						carousel.classList.remove('last-cell');
+					}
+					else if (!activecell.nextElementSibling) {
+						carousel.classList.remove('first-cell');
+						carousel.classList.add('last-cell');
+					}
+					else {
+						carousel.classList.remove('first-cell');
+						carousel.classList.remove('last-cell');
+					}
+					if (activecell.classList.contains('carousel-image')) {
+						years.classList.add('image-selected');
+					}
+					else {
+						years.classList.remove('image-selected');
+					}
+					var prevelement = activecell;
+					while (prevelement) {
+						if (prevelement.classList.contains('carousel-image')) {
+							var prevactivebutton = document.querySelector('.years button.active'),
+								imagenum = prevelement.classList.item(1),
+								activebutton = document.querySelector('button[data-select=".' + imagenum + '"]');
+							prevactivebutton.classList.remove('active');
+							activebutton.classList.add('active');
+							var left = activebutton.offsetLeft,
+								width = 123,
+								divwidth = years.offsetWidth;
+							prevelement = activebutton.previousElementSibling;
+							while (prevelement) {
+								if (prevelement == prevactivebutton) {
+									left = left - 12;
+									break;
+								}
+								prevelement = prevelement.previousElementSibling;
+							}
+							years.children[0].style.transform = 'translateX(' + (divwidth / 2 - left - width / 2) + 'px)';
+							break;
+						}
+						prevelement = prevelement.previousElementSibling;
+					}
+				}
+
+				var prevbutton = document.getElementsByClassName('flickity-prev')[0],
+					nextbutton = document.getElementsByClassName('flickity-next')[0];
+
+				prevbutton.addEventListener('click', function () {
+					flkty.previous();
+					if (!body.classList.contains('tabbing')) carousel.focus();
+				});
+				nextbutton.addEventListener('click', function () {
+					flkty.next();
+					if (!body.classList.contains('tabbing')) carousel.focus();
+				});
+
+				Ajax.removeListener = function () {
+					flkty.off('select', checkCell);
+					flkty = null;
+					window.removeEventListener('resize', carouselHeight);
+				}
+			}
+			else setTimeout(customJS, 100);
+		}
+		customJS();
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#000">
+	<meta name="description" content="All of HCINPCC's past achievements, proudly displayed.">
+	<title>Roll of Honour • HCINPCC Unit Website</title>
+	<link rel="preload" href="fonts/roboto-subset.woff2" as="font" type="font/woff2" crossorigin>
+	<script>'use strict'; document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('DOMloaded'); document.body.classList.add('no-transition'); setTimeout(function () { document.body.classList.remove('no-transition'); }, 300); if (window.matchMedia('(min-width:1024px) and (min-height:450px)').matches) document.body.classList.add('nav-active'); }); if ('serviceWorker' in navigator) if (navigator.serviceWorker.controller) document.documentElement.className = 'subset-font-loaded all-fonts-loaded'</script>
+	<link rel="icon" href="images/hci.png">
+	<link rel="shortcut icon" href="images/hci.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="style.min.css">
+	<link rel="stylesheet" href="font.css">
+	<script src="font.js" async></script>
+	<script src="script.min.js" defer></script>
+	<script src="flickity.pkgd.min.js" defer></script>
+
+	<style class="ajax-style">
+		section.main .grid {
+			align-items: center;
+			margin: 0;
+		}
+
+		section.main button.dropdown+.dropdown-content .wrapper {
+			padding: 0;
+		}
+
+		section.main .dropdown-content .grid:last-of-type {
+			margin-bottom: 16px;
+		}
+
+		section.main .dropdown-content .grid>.list {
+			display: flex;
+			flex-wrap: wrap;
+			flex-basis: 100%;
+			margin: 0;
+		}
+
+		section.main .dropdown-content .grid>.list h4 {
+			flex-basis: 100%;
+		}
+
+		section.main .dropdown-content .grid>.list p {
+			font-size: 16px;
+		}
+
+		section.main .dropdown-content .grid>.list+p {
+			display: none;
+		}
+
+		section.main .dropdown-content .grid>h3:nth-child(odd),
+		section.main .dropdown-content .grid>p:nth-child(odd),
+		section.main .dropdown-content .grid>.list>p:nth-child(even) {
+			flex-basis: auto;
+			width: calc(100% - 128px);
+			margin: 0;
+			padding-right: 12px;
+		}
+
+		section.main .dropdown-content .grid>.list>p:nth-child(even) {
+			padding-left: 28px;
+		}
+
+		section.main .dropdown-content .grid>h3:nth-child(even),
+		section.main .dropdown-content .grid>p:nth-child(even),
+		section.main .dropdown-content .grid>.list>p:nth-child(odd) {
+			flex-basis: 128px;
+			margin: 0;
+			text-align: right;
+		}
+
+		section.main .dropdown-content .grid h3 {
+			padding: 16px 0 8px 0;
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 28px;
+		}
+
+		.all-fonts-loaded section.main .dropdown-content .grid h3 {
+			font-family: 'Renner*', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+		}
+
+		section.main .dropdown-content .grid p,
+		section.main .dropdown-content .grid h4 {
+			padding: 8px 0;
+			font-size: 17px;
+			line-height: 24px;
+		}
+
+		@media (max-width: 450px) {
+			section.main .dropdown-content .grid>h3:nth-child(odd),
+			section.main .dropdown-content .grid>p:nth-child(odd),
+			section.main .dropdown-content .grid>.list>p:nth-child(even) {
+				width: calc(100% - 108px);
+			}
+			section.main .dropdown-content .grid>.list>p:nth-child(even) {
+				padding-left: 20px;
+			}
+			section.main .dropdown-content .grid>h3:nth-child(even),
+			section.main .dropdown-content .grid>p:nth-child(even),
+			section.main .dropdown-content .grid>.list>p:nth-child(odd) {
+				flex-basis: 108px;
+			}
+			section.main .dropdown-content .grid h3 {
+				font-size: 18px;
+			}
+			section.main .dropdown-content .grid p,
+			section.main .dropdown-content .grid h4 {
+				font-size: 16px;
+			}
+			section.main .dropdown-content .grid>.list p {
+				font-size: 15px;
+			}
+		}
+
+		section.main button.dropdown .progress {
+			position: absolute;
+			top: auto;
+			bottom: 0;
+			padding: 0;
+			transform: none;
+			opacity: 0;
+			transition: opacity .4s, visibility 0s .3s;
+		}
+
+		section.main button.dropdown.loading>div>.progress {
+			opacity: 1;
+			visibility: visible;
+			transition: opacity .2s;
+		}
+
+		section.main button.dropdown .progress>div,
+		section.main button.dropdown .progress>div>div {
+			padding: 0;
+		}
+
+		section.main button.dropdown .ripple.appear {
+			transition: transform .6s cubic-bezier(.4, 0, .2, 1), opacity .3s;
+		}
+
+		section.main button.dropdown .ripple.finish.fade-out {
+			transition: transform .6s cubic-bezier(.4, 0, .2, 1), opacity .5s;
+		}
+
+		@media (max-width: 450px) {
+			section.main button.dropdown .ripple.appear {
+				transition: transform .5s cubic-bezier(.4, 0, .2, 1), opacity .3s;
+			}
+			section.main button.dropdown .ripple.finish.fade-out {
+				transition: transform .5s cubic-bezier(.4, 0, .2, 1), opacity .5s;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="progress">
+		<div>
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="navbar">
+		<button class="menu" aria-label="Menu">
+			<div>
+				<svg viewBox="0 0 24 24">
+					<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+				</svg>
+			</div>
+		</button>
+		<picture>
+			<source srcset="images/hcinpcc-75x40.png, images/hcinpcc-150x80.png 2x, images/hcinpcc-225x120.png 3x, images/hcinpcc-300x160.png 4x">
+			<img class="fade" src="images/hcinpcc-150x80.png" alt="HCINPCC Logo">
+		</picture>
+	</div>
+	<div class="nav-gradient"></div>
+	<div class="nav-drawer">
+		<div class="scrollbar-animate">
+			<div class="wrapper">
+				<ul>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+						</svg>
+						<a href="./">Home</a>
+					</li>
+					<li>
+						<svg viewBox="0 0 24 24">
+							<path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+							/>
+						</svg>
+						<a href="gallery">Gallery</a>
+					</li>
+					<li class="dropdown dropdown-open active">
+						<button>
+							<div>About HCINPCC</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="info">NPCC Information</a>
+							</li>
+							<li class="active">
+								<a href="roh">Roll of Honour</a>
+							</li>
+							<li>
+								<a href="officers">Officers</a>
+							</li>
+							<li>
+								<a href="exco">Unit Hierarchy</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Publications</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M14,17H7V15H14M17,13H7V11H17M17,9H7V7H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="https://hcinpcc.wordpress.com" target="_blank">Articles</a>
+								<div class="external">
+									<svg viewBox="0 0 24 24">
+										<path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+										/>
+									</svg>
+								</div>
+							</li>
+							<li>
+								<a href="ac">Annual Chronicles</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<button>
+							<div>Help</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
+							/>
+						</svg>
+						<div class="caret">
+							<svg viewBox="0 0 24 24">
+								<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+							</svg>
+						</div>
+					</li>
+					<li class="dropdown-content">
+						<ul>
+							<li>
+								<a href="links">Useful Links</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="social-media">
+					<li>
+						<a href="https://www.instagram.com/hcinpcc/" target="_blank">Follow Us On Instagram</a>
+						<img src="images/instagram-black.svg">
+						<img src="images/instagram-color.svg">
+					</li>
+					<li class="pwa-install">
+						<button>
+							<div>Install App</div>
+						</button>
+						<svg viewBox="0 0 24 24">
+							<path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+						</svg>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="scrim"></div>
+	<div class="drag-nav-drawer"></div>
+	<div class="nav-links-tooltip">
+		<div class="wrapper">
+			<span>Home</span>
+			<span></span>
+		</div>
+	</div>
+
+	<div class="ajax-content">
+		<section class="title">
+			<h1>Roll of Honour</h1>
+		</section>
+		<section class="main">
+			<button class="dropdown dropdown-open" data-fetch="2019">
+				<div>
+					<a>2019</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2018">
+				<div>
+					<a>2018</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2017">
+				<div>
+					<a>2017</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2016">
+				<div>
+					<a>2016</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2015">
+				<div>
+					<a>2015</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2014">
+				<div>
+					<a>2014</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2013">
+				<div>
+					<a>2013</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2012">
+				<div>
+					<a>2012</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2011">
+				<div>
+					<a>2011</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2010">
+				<div>
+					<a>2010</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2009">
+				<div>
+					<a>2009</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2008">
+				<div>
+					<a>2008</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2007">
+				<div>
+					<a>2007</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2006">
+				<div>
+					<a>2006</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2005">
+				<div>
+					<a>2005</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2004">
+				<div>
+					<a>2004</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2003">
+				<div>
+					<a>2003</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2002">
+				<div>
+					<a>2002</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2001">
+				<div>
+					<a>2001</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="2000">
+				<div>
+					<a>2000</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1999">
+				<div>
+					<a>1999</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1998">
+				<div>
+					<a>1998</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1997">
+				<div>
+					<a>1997</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1996">
+				<div>
+					<a>1996</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1995">
+				<div>
+					<a>1995</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1994">
+				<div>
+					<a>1994</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1993">
+				<div>
+					<a>1993</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1992">
+				<div>
+					<a>1992</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1991">
+				<div>
+					<a>1991</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1990">
+				<div>
+					<a>1990</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1989">
+				<div>
+					<a>1989</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1988">
+				<div>
+					<a>1988</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1987">
+				<div>
+					<a>1987</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1986">
+				<div>
+					<a>1986</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1985">
+				<div>
+					<a>1985</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1984">
+				<div>
+					<a>1984</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+			<button class="dropdown" data-fetch="1983">
+				<div>
+					<a>1983</a>
+					<div class="caret">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+						</svg>
+					</div>
+					<div class="progress">
+						<div>
+							<div>
+								<span></span>
+							</div>
+							<div>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</button>
+			<div class="dropdown-content">
+				<div class="wrapper"></div>
+			</div>
+		</section>
+		<section class="footer">
+			<footer>
+				© 2020
+				<span>Hwa Chong Institution National Police Cadet Corps</span>
+				<span>HCINPCC</span>
+			</footer>
+		</section>
+	</div>
+
+	<div class="error">An error occured. Please try again later.</div>
+	<script class="ajax-script">
+		var main = document.getElementsByClassName('main')[0];
+		function customJS() {
+			if (typeof (Ajax) !== 'undefined') {
+				Ajax.script = document.getElementsByClassName('ajax-script')[0];
+
+				var preload = document.querySelector('.dropdown-open[data-fetch]');
+
+				if (preload) {
+					var xhr = new XMLHttpRequest(),
+						filename = preload.getAttribute('data-fetch');
+					preload.classList.add('loading');
+					preload.classList.add('indeterminate');
+					xhr.onload = function () {
+						setTimeout(function () {
+							preload.classList.remove('loading');
+						}, 200);
+						var wrapper = preload.nextElementSibling.children[0];
+						wrapper.innerHTML = xhr.responseText;
+						preload.removeAttribute('data-fetch');
+					};
+					xhr.onabort = xhr.onerror = function () {
+						preload.classList.remove('loading');
+						error();
+						preload.classList.remove('dropdown-open');
+					};
+					xhr.open("GET", 'page-resources/roh/' + filename);
+					xhr.send();
+				}
+
+				main.addEventListener('click', dropdownClick);
+				function dropdownClick(e) {
+					var elem = e.target;
+					while (elem && !elem.hasAttribute('data-fetch')) {
+						elem = elem.parentElement;
+					}
+					if (!elem || !elem.hasAttribute('data-fetch')) return false;
+					var xhr = new XMLHttpRequest(),
+						filename = elem.getAttribute('data-fetch'),
+						dropdowncontent = elem.nextElementSibling.children[0];
+					elem.classList.add('loading');
+					elem.classList.add('indeterminate');
+					xhr.onload = function () {
+						setTimeout(function () {
+							elem.classList.remove('loading');
+						}, 200);
+						var wrapper = elem.nextElementSibling.children[0];
+						wrapper.innerHTML = xhr.responseText;
+						dropdowncontent.style.marginTop = (-dropdowncontent.offsetHeight) + 'px';
+						elem.removeAttribute('data-fetch');
+						elem.children[0].click();
+					};
+					xhr.onabort = xhr.onerror = function () {
+						elem.classList.remove('loading');
+						error();
+					};
+					xhr.open("GET", 'page-resources/roh/' + filename);
+					xhr.send();
+				}
+
+				Ajax.removeListener = function () {
+					main.removeEventListener('click', dropdownClick);
+					main = null;
+				}
+			}
+			else setTimeout(customJS, 100);
+		}
+		customJS();
+	</script>
+</body>
+
+</html>
